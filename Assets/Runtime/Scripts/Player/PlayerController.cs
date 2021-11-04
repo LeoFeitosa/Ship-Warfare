@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    PlayerInputController input;
+    Vector3 moveDirections = Vector3.zero;
+    Rigidbody2D rb2D;
+    [SerializeField] float speedMoveNormal = 0.5f;
+
     void Start()
     {
-        
+        input = GetComponent<PlayerInputController>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        Move(input.Movements());
+    }
+
+    void Move(Vector3 move)
+    {
+        moveDirections += move * speedMoveNormal * Time.fixedDeltaTime;
+        rb2D.MovePosition(moveDirections);
     }
 }

@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Vector3 Movements()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        return new Vector3(horizontal, vertical, transform.position.z);
     }
 }
