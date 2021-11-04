@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerController))]
 public class PlayerAnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator animator;
+    private PlayerController playerController;
+
+    private static readonly int moveId = Animator.StringToHash("Move");
+
+    private void Awake()
     {
-        
+        playerController = GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        
+        animator.SetFloat(moveId, playerController.IsMove);
+    }
+
+    public void Die()
+    {
+        animator.enabled = false;
+        enabled = false;
     }
 }

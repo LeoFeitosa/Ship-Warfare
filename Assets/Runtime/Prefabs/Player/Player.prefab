@@ -45,7 +45,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.12}
-  m_Size: {x: 0.3, y: 0.4}
+  m_Size: {x: 0.32, y: 0.4}
   m_Direction: 0
 --- !u!1 &400957699131977073
 GameObject:
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4360530552843628718, guid: 049f3ba150324d44eb3e890fbc61c0f3, type: 3}
+  m_Sprite: {fileID: -3352868958805856340, guid: 049f3ba150324d44eb3e890fbc61c0f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMoveNormal: 7.5
+  limitMoveX: 2.55
+  limitMoveY: 4.62
 --- !u!114 &400957698707302594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d038831211ad4374f9f76c6a6b05aaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 400957699131977072}
 --- !u!50 &4167447090659260677
 Rigidbody2D:
   serializedVersion: 4
@@ -243,4 +246,4 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4

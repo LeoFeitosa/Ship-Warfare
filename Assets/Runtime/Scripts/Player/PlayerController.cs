@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirections = Vector3.zero;
     Rigidbody2D rb2D;
     [SerializeField] float speedMoveNormal = 0.5f;
+    [SerializeField] float limitMoveX = 4f;
+    [SerializeField] float limitMoveY = 4f;
+
+    public float IsMove { get; private set; }
 
     void Start()
     {
@@ -24,7 +28,13 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector3 move)
     {
+        IsMove = move.x;
+
         moveDirections += move * speedMoveNormal * Time.fixedDeltaTime;
+
+        moveDirections.x = Mathf.Clamp(moveDirections.x, limitMoveX * -1, limitMoveX);
+        moveDirections.y = Mathf.Clamp(moveDirections.y, limitMoveY * -1, limitMoveY);
+
         rb2D.MovePosition(moveDirections);
     }
 }
