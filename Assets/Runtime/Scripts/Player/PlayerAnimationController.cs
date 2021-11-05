@@ -19,10 +19,4 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetFloat(moveId, playerController.IsMove);
     }
-
-    public void Die()
-    {
-        animator.enabled = false;
-        enabled = false;
-    }
 }
