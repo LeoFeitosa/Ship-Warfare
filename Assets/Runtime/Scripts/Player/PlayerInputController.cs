@@ -11,4 +11,13 @@ public class PlayerInputController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         return new Vector3(horizontal, vertical, transform.position.z);
     }
+
+    public bool Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            return true;
+        }
+        return false;
+    }
 }
