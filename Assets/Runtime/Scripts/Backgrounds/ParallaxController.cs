@@ -51,8 +51,6 @@ public class ParallaxController : MonoBehaviour
                         }
                     }
                 }
-
-                Debug.Log("instanciar");
             }
         }
     }
