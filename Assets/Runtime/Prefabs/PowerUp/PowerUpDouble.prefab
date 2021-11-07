@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 917324912513783989}
   - component: {fileID: 917324912513783988}
   - component: {fileID: 917324912513783991}
+  - component: {fileID: 2127661471}
   m_Layer: 0
-  m_Name: PowerUpTwo
+  m_Name: PowerUpDouble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1706078745
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -8396681882483885910, guid: a9f4687e69b4dd147afd377e431845a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -103,3 +104,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &2127661471
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917324912513783990}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25

@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2533092756783890157}
   - component: {fileID: 2533092756783890156}
   - component: {fileID: 2533092756783890163}
+  - component: {fileID: 446696656}
+  - component: {fileID: 8837763923336381539}
   m_Layer: 0
-  m_Name: PowerUpOne
-  m_TagString: Untagged
+  m_Name: PowerUpTriple
+  m_TagString: PowerUpShotTriple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1706078745
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4651472796450862913, guid: a9f4687e69b4dd147afd377e431845a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -103,3 +105,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &446696656
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533092756783890162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
+--- !u!114 &8837763923336381539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533092756783890162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6c2eafb5c70344d9f5f9740ea36f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

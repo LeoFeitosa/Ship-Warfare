@@ -38,19 +38,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator SetDelayShot()
-    {
-        yield return new WaitForSeconds(1);
-    }
-
     void Move(Vector3 move)
     {
         IsMove = move.x;
 
         moveDirections += move * speedMoveNormal * Time.fixedDeltaTime;
 
-        moveDirections.x = Mathf.Clamp(moveDirections.x, limitMoveX * -1, limitMoveX);
-        moveDirections.y = Mathf.Clamp(moveDirections.y, limitMoveY * -1, limitMoveY);
+        moveDirections.x = Mathf.Clamp(moveDirections.x, -limitMoveX, limitMoveX);
+        moveDirections.y = Mathf.Clamp(moveDirections.y, -limitMoveY, limitMoveY);
 
         rb2D.MovePosition(moveDirections);
     }
