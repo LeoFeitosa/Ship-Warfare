@@ -190,6 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400957699947907344}
   - component: {fileID: 400957698707302593}
+  - component: {fileID: 8718567972641795028}
   - component: {fileID: 400957698707302594}
   - component: {fileID: 8215032749341944876}
   - component: {fileID: 4167447090659260677}
@@ -232,10 +233,23 @@ MonoBehaviour:
   speedMoveNormal: 7.5
   limitMoveX: 2.55
   limitMoveY: 4.62
+--- !u!114 &8718567972641795028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400957699947907345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1108faf1c0c016a44bcfd5ea42995996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   shotStartPosition: {fileID: 205141238}
   shotNormalPrefab: {fileID: 2379493146602636634, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
   angleShot: 10
   shotType: 0
+  delayShot: 0.18
 --- !u!114 &400957698707302594
 MonoBehaviour:
   m_ObjectHideFlags: 0

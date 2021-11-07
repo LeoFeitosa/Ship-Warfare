@@ -641,6 +641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8718567972641795028, guid: fc338d53506fb474e86a4ce5fa0ffde4, type: 3}
+      propertyPath: delayShot
+      value: 0.18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc338d53506fb474e86a4ce5fa0ffde4, type: 3}
 --- !u!1001 &8264368164435608388

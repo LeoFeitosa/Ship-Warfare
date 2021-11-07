@@ -14,7 +14,7 @@ public class PlayerInputController : MonoBehaviour
 
     public bool Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             return true;
         }
