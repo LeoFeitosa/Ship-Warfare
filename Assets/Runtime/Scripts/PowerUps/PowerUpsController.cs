@@ -4,28 +4,14 @@ using UnityEngine;
 
 public class PowerUpsController : MonoBehaviour
 {
+    [SerializeField] float powerUpDuration = 2;
     ShotsTypesController shotsTypes;
-    public void PowerUpNormal()
-    {
-        shotsTypes.shotType = ShotsTypesController.ShotType.Normal;
-    }
-
-    public void PowerUpDouble()
-    {
-        shotsTypes.shotType = ShotsTypesController.ShotType.Double;
-    }
-
-    public void PowerUpTriple()
-    {
-        Debug.Log("ok");
-        shotsTypes.shotType = ShotsTypesController.ShotType.Triple;
-    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            shotsTypes = col.gameObject.GetComponent<ShotsTypesController>();
+            shotsTypes = col.gameObject.GetComponentInParent<ShotsTypesController>();
 
             if (shotsTypes != null)
             {
@@ -38,11 +24,45 @@ public class PowerUpsController : MonoBehaviour
                 {
                     PowerUpDouble();
                 }
+
+                if (gameObject.tag == "PowerUpOneMoreLife")
+                {
+                    PowerUpOneMoreLife();
+                }
+
             }
             else
             {
-                Debug.Log("nao achou o componente");
+                Debug.LogError("Não foi possivel encontrar o gameObject ShotsTypesController");
             }
         }
+    }
+
+    void PowerUpOneMoreLife()
+    {
+        Debug.Log("Mais uma vida");
+    }
+
+    void PowerUpNormal()
+    {
+        shotsTypes.shotType = ShotsTypesController.ShotType.Normal;
+    }
+
+    void PowerUpDouble()
+    {
+        shotsTypes.shotType = ShotsTypesController.ShotType.Double;
+        StartCoroutine(TimeToInterruptPowerUp());
+    }
+
+    void PowerUpTriple()
+    {
+        shotsTypes.shotType = ShotsTypesController.ShotType.Triple;
+        StartCoroutine(TimeToInterruptPowerUp());
+    }
+
+    IEnumerator TimeToInterruptPowerUp()
+    {
+        yield return new WaitForSeconds(powerUpDuration);
+        PowerUpNormal();
     }
 }

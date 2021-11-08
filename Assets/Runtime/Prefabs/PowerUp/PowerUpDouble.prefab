@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 917324912513783988}
   - component: {fileID: 917324912513783991}
   - component: {fileID: 2127661471}
+  - component: {fileID: 8342745455262504923}
   m_Layer: 0
   m_Name: PowerUpDouble
-  m_TagString: Untagged
+  m_TagString: PowerUpShotDouble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +45,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -114,9 +114,22 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &8342745455262504923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917324912513783990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6c2eafb5c70344d9f5f9740ea36f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpDuration: 20

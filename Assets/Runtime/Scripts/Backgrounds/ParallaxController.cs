@@ -66,7 +66,6 @@ public class ParallaxController : MonoBehaviour
     bool RandBool()
     {
         float rand = Random.Range(0, 100);
-        Debug.Log(rand);
         return (rand < 50) ? true : false;
     }
 }
