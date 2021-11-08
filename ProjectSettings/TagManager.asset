@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PowerUpShotTriple
   - PowerUpShotDouble
+  - PowerUpOneMoreLife
   layers:
   - Default
   - TransparentFX
