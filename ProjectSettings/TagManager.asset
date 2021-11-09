@@ -7,15 +7,16 @@ TagManager:
   - PowerUpShotTriple
   - PowerUpShotDouble
   - PowerUpOneMoreLife
+  - BackgroundPowerUp
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Camera
+  - PowerUp
   - 
   - 
   - 

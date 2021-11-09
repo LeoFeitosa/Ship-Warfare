@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 8574159809228735800}
   m_Layer: 5
   m_Name: BackgroundPowerUp
-  m_TagString: Untagged
+  m_TagString: BackgroundPowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -231,7 +231,7 @@ RectTransform:
   m_GameObject: {fileID: 8574159809549596885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0052083335, y: 0.0052083335, z: 0.0052083335}
   m_Children:
   - {fileID: 8574159808765904660}
   m_Father: {fileID: 0}
@@ -251,9 +251,9 @@ Canvas:
   m_GameObject: {fileID: 8574159809549596885}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 10
+  m_RenderMode: 2
+  m_Camera: {fileID: 5786893720130682169, guid: cf75b423aa7482849b6afb0f5aba99f2, type: 3}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8574159809549596884
 MonoBehaviour:
   m_ObjectHideFlags: 0

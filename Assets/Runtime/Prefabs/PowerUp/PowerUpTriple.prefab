@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2533092756783890163}
   - component: {fileID: 446696656}
   - component: {fileID: 8837763923336381539}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PowerUpTriple
   m_TagString: PowerUpShotTriple
   m_Icon: {fileID: 0}
@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
+  speedTargetPosition: 30

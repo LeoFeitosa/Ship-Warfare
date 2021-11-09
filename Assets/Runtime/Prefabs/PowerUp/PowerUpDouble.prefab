@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 917324912513783991}
   - component: {fileID: 2127661471}
   - component: {fileID: 8342745455262504923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PowerUpDouble
   m_TagString: PowerUpShotDouble
   m_Icon: {fileID: 0}
@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+  speedTargetPosition: 30
