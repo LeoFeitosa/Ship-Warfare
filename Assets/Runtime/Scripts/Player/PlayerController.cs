@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     ShotsTypesController shotsTypes;
     Vector3 moveDirections = Vector3.zero;
     Rigidbody2D rb2D;
+    [SerializeField] int numberOfLives = 4;
+    public static float Lives { get; private set; }
     [SerializeField] float speedMoveNormal = 0.5f;
     [SerializeField] float limitMoveX = 4f;
     [SerializeField] float limitMoveY = 4f;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Lives = numberOfLives;
+
         input = GetComponent<PlayerInputController>();
         shotsTypes = GetComponent<ShotsTypesController>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log(Lives);
         Move(input.Movements());
     }
 
@@ -48,5 +53,16 @@ public class PlayerController : MonoBehaviour
         moveDirections.y = Mathf.Clamp(moveDirections.y, -limitMoveY, limitMoveY);
 
         rb2D.MovePosition(moveDirections);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Enemy"))
+        {
+            if (Lives >= 1)
+            {
+                Lives--;
+            }
+        }
     }
 }

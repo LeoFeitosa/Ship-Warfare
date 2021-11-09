@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LivesController : MonoBehaviour
+public class LifesController : MonoBehaviour
 {
     [SerializeField] float speedTargetPosition = 4f;
     Transform targetPositionInUI;
