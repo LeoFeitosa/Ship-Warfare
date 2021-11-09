@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifesController : MonoBehaviour
+public class LivesController : MonoBehaviour
 {
     [SerializeField] float speedTargetPosition = 4f;
     Transform targetPositionInUI;
@@ -13,7 +13,7 @@ public class LifesController : MonoBehaviour
     {
         colorPowerUp = GetComponent<SpriteRenderer>();
 
-        GameObject backgroundPowerUp = GameObject.FindWithTag("BackgroundLife");
+        GameObject backgroundPowerUp = GameObject.FindWithTag("BackgroundLive");
         if (backgroundPowerUp != null)
         {
             targetPositionInUI = backgroundPowerUp.transform;

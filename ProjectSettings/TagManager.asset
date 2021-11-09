@@ -8,8 +8,8 @@ TagManager:
   - PowerUpShotDouble
   - PowerUpOneMoreLife
   - BackgroundPowerUp
-  - BackgroundLife
   - Enemy
+  - BackgroundLive
   layers:
   - Default
   - TransparentFX

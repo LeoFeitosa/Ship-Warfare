@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirections = Vector3.zero;
     Rigidbody2D rb2D;
     [SerializeField] int numberOfLives = 4;
-    public static float Lives { get; private set; }
+    public int Lives { get; private set; }
     [SerializeField] float speedMoveNormal = 0.5f;
     [SerializeField] float limitMoveX = 4f;
     [SerializeField] float limitMoveY = 4f;
@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(Lives);
         Move(input.Movements());
     }
 

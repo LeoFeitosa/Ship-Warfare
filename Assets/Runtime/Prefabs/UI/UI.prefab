@@ -199,8 +199,8 @@ GameObject:
   - component: {fileID: 138993238461058729}
   - component: {fileID: 5635057700801343939}
   m_Layer: 5
-  m_Name: Lifes
-  m_TagString: BackgroundLife
+  m_Name: LifeBar
+  m_TagString: BackgroundLive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 8574159808765904650}
   - component: {fileID: 8574159808765904651}
   - component: {fileID: 8574159808765904649}
+  - component: {fileID: 3559303934792717890}
   m_Layer: 5
   m_Name: Information
   m_TagString: Untagged
@@ -390,6 +391,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpBar: {fileID: 8574159810063306050}
+--- !u!114 &3559303934792717890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8574159808765904661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1373481509ddc248b2a6f76b20410de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorLiveBar:
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.5, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &8574159808791628464
 GameObject:
   m_ObjectHideFlags: 0
