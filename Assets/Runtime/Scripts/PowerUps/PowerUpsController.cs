@@ -5,17 +5,13 @@ using UnityEngine;
 public class PowerUpsController : MonoBehaviour
 {
     [SerializeField] float duration = 2;
-    public float PowerUpDuration { get; private set; }
-    bool timerIsRunning = false;
+    public static float PowerUpDuration { get; private set; }
+    bool timerIsRunning = false, initTimerIsRunning = false;
     ShotsTypesController shotsTypes;
-
-    void Start()
-    {
-        PowerUpDuration = duration + 1;
-    }
 
     void FixedUpdate()
     {
+        InitTimerPowerUp();
         TimerPowerUp();
     }
 
@@ -31,6 +27,8 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
+                initTimerIsRunning = true;
+
                 if (gameObject.tag == "PowerUpShotTriple")
                 {
                     PowerUpTriple();
@@ -63,22 +61,19 @@ public class PowerUpsController : MonoBehaviour
     void PowerUpDouble()
     {
         shotsTypes.shotType = ShotsTypesController.ShotType.Double;
-        StartCoroutine(TimeToInterruptPowerUp());
+        StartPowerUp();
     }
 
     void PowerUpTriple()
     {
         shotsTypes.shotType = ShotsTypesController.ShotType.Triple;
-        StartCoroutine(TimeToInterruptPowerUp());
+        StartPowerUp();
     }
 
-    IEnumerator TimeToInterruptPowerUp()
+    void StartPowerUp()
     {
         HideObject();
         timerIsRunning = true;
-        yield return new WaitForSeconds(duration);
-        PowerUpNormal();
-        Destroy(gameObject);
     }
 
     void HideObject()
@@ -90,16 +85,29 @@ public class PowerUpsController : MonoBehaviour
 
     void TimerPowerUp()
     {
-        if (timerIsRunning)
+        if (timerIsRunning && !initTimerIsRunning)
         {
-            if (PowerUpDuration > 1)
-            {
-                PowerUpDuration -= Time.fixedDeltaTime;
-                Debug.Log(Mathf.FloorToInt(PowerUpDuration % 60));
-            }
-            else
+            float percent = 1.0f / duration * Time.fixedDeltaTime;
+            PowerUpDuration -= percent;
+            if (PowerUpDuration <= 0.02f)
             {
                 PowerUpDuration = 0;
+                PowerUpNormal();
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    void InitTimerPowerUp()
+    {
+        if (initTimerIsRunning)
+        {
+            float percent = 1.0f / 0.2f * Time.fixedDeltaTime;
+            PowerUpDuration += percent;
+            if (PowerUpDuration >= 1)
+            {
+                PowerUpDuration = 1;
+                initTimerIsRunning = false;
             }
         }
     }

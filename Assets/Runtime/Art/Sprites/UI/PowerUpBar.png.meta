@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: df00116ee09d6824d9930508f8e84d11
+guid: 2b0c06e084a0e044f9d6ca232dc19e54
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -3452912944203954355
-    second: SpaceShooterAssetPack_IU_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,28 +101,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: SpaceShooterAssetPack_IU_0
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 98
-        width: 24
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d470068b8f9c410d0800000000000000
-      internalID: -3452912944203954355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
