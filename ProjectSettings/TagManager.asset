@@ -8,6 +8,7 @@ TagManager:
   - PowerUpShotDouble
   - PowerUpOneMoreLife
   - BackgroundPowerUp
+  - BackgroundLife
   layers:
   - Default
   - TransparentFX

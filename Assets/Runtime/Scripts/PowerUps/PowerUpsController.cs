@@ -13,11 +13,12 @@ public class PowerUpsController : MonoBehaviour
     bool movePowerUp = false;
     bool timerIsRunning = false, initTimerIsRunning = false;
     ShotsTypesController shotsTypes;
-    Color colorPowerUp;
+    SpriteRenderer colorPowerUp;
 
     void Start()
     {
-        colorPowerUp = GetComponent<SpriteRenderer>().color;
+        colorPowerUp = GetComponent<SpriteRenderer>();
+
         GameObject backgroundPowerUp = GameObject.FindWithTag("BackgroundPowerUp");
         if (backgroundPowerUp != null)
         {
@@ -78,45 +79,55 @@ public class PowerUpsController : MonoBehaviour
     void PowerUpDouble()
     {
         shotsTypes.shotType = ShotsTypesController.ShotType.Double;
-        StartPowerUp();
+        MovePowerUpToUI();
     }
 
     void PowerUpTriple()
     {
         shotsTypes.shotType = ShotsTypesController.ShotType.Triple;
-        StartPowerUp();
+        MovePowerUpToUI();
     }
 
-    void StartPowerUp()
+    void MovePowerUpToUI()
     {
-        HideObject();
         timerIsRunning = true;
+
+        TransformCollectedPowerIntoUI();
+
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID("UI");
+        GetComponent<SpriteRenderer>().sortingOrder = 10;
+
+        movePowerUp = true;
+
+        AdjustScalePowerUp();
     }
 
-    void HideObject()
+    void AdjustScalePowerUp()
     {
-        GetComponent<CircleCollider2D>().enabled = false;
         transform.localScale = new Vector3(sizeAfterPickingUp, sizeAfterPickingUp, transform.localScale.z);
+    }
 
-        GameObject[] powerUpTripleInScene = GameObject.FindGameObjectsWithTag("PowerUpShotTriple");
-        GameObject[] powerUpDoubleInScene = GameObject.FindGameObjectsWithTag("PowerUpShotDouble");
-        GameObject[] powerUpsInScene = powerUpTripleInScene.Concat(powerUpDoubleInScene).ToArray();
-
-        foreach (var item in powerUpsInScene)
+    void TransformCollectedPowerIntoUI()
+    {
+        foreach (var item in GetPowerUpsByTag())
         {
-            SpriteRenderer render = item.gameObject.GetComponent<SpriteRenderer>();
-            CircleCollider2D collider = item.gameObject.GetComponent<CircleCollider2D>();
+            SpriteRenderer render = item.GetComponent<SpriteRenderer>();
+            CircleCollider2D collider = item.GetComponent<CircleCollider2D>();
             if (render != null && collider.enabled == false)
             {
                 render.sortingLayerID = SortingLayer.NameToID("UI");
                 render.sortingOrder = 1;
             }
         }
+    }
 
-        GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID("UI");
-        GetComponent<SpriteRenderer>().sortingOrder = 10;
-
-        movePowerUp = true;
+    GameObject[] GetPowerUpsByTag()
+    {
+        GameObject[] powerUpTripleInScene = GameObject.FindGameObjectsWithTag("PowerUpShotTriple");
+        GameObject[] powerUpDoubleInScene = GameObject.FindGameObjectsWithTag("PowerUpShotDouble");
+        GameObject[] powerUpsInScene = powerUpTripleInScene.Concat(powerUpDoubleInScene).ToArray();
+        return powerUpsInScene;
     }
 
     void MovePowerUp()
@@ -125,6 +136,14 @@ public class PowerUpsController : MonoBehaviour
         {
             float step = speedTargetPosition * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPositionInUI.position, step);
+        }
+    }
+
+    void SetTransparence(float value)
+    {
+        if (colorPowerUp != null)
+        {
+            colorPowerUp.material.color = new Color(1, 1, 1, PowerUpDuration);
         }
     }
 
@@ -140,12 +159,7 @@ public class PowerUpsController : MonoBehaviour
                 PowerUpNormal();
                 Destroy(gameObject);
             }
-
-            if (colorPowerUp != null)
-            {
-                Debug.Log("addddddd");
-                colorPowerUp.a = PowerUpDuration;
-            }
+            SetTransparence(PowerUpDuration);
         }
     }
 

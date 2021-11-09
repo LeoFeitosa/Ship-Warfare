@@ -133,4 +133,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  speedTargetPosition: 30
+  sizeAfterPickingUp: 0.832
+  speedTargetPosition: 38
