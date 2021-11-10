@@ -10,6 +10,7 @@ TagManager:
   - BackgroundPowerUp
   - Enemy
   - BackgroundLive
+  - Life
   layers:
   - Default
   - TransparentFX

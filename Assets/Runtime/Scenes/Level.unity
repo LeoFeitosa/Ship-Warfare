@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6521963264600655783, guid: a6ee381ee0f8a6e4dbea2afa9b7937ea, type: 3}
       propertyPath: m_Name
-      value: LiveExtra
+      value: LifeExtra
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ee381ee0f8a6e4dbea2afa9b7937ea, type: 3}

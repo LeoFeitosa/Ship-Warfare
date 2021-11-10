@@ -30,8 +30,6 @@ public class LivesController : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             moveLife = true;
-
-
         }
     }
 

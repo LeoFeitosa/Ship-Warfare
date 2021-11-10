@@ -63,5 +63,13 @@ public class PlayerController : MonoBehaviour
                 Lives--;
             }
         }
+
+        if (col.CompareTag("Life"))
+        {
+            if (Lives < numberOfLives)
+            {
+                Lives++;
+            }
+        }
     }
 }

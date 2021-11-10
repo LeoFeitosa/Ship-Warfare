@@ -6,49 +6,64 @@ using UnityEngine;
 public class UILivesController : MonoBehaviour
 {
     [SerializeField] Color[] colorLiveBar;
-    Image liveBar;
-    GameObject playerController;
-    int currentLives;
-    Image currentColorBar;
+    Image imageLiveBar;
+    static PlayerController playerController;
+    float percentageBar;
+    [SerializeField] float timeToRemoveLife = 1.5f;
+    [SerializeField] float timeToMergeColors = 2;
 
     void Start()
     {
-        playerController = GameObject.FindWithTag("Player");
-        if (playerController != null)
-        {
-            //currentLives = playerController.GetComponent<PlayerController>();
-        }
+        GameObject player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
 
         GameObject backgroundLive = GameObject.FindWithTag("BackgroundLive");
         if (backgroundLive != null)
         {
-            liveBar = backgroundLive.GetComponent<Image>(); ;
+            imageLiveBar = backgroundLive.GetComponent<Image>(); ;
+        }
+
+        if (colorLiveBar != null)
+        {
+            percentageBar = 1f / (colorLiveBar.Length - 1);
         }
     }
 
     void LateUpdate()
     {
-        //currentLives = 2;
-
-        switch (GetComponent<PlayerController>().Lives)
+        switch (playerController.Lives)
         {
             case 4:
-                liveBar.GetComponent<Image>().color = colorLiveBar[4];
+                SetColorBar(4);
+                SetSizeBar(4);
                 break;
             case 3:
-                liveBar.GetComponent<Image>().color = colorLiveBar[3];
+                SetColorBar(3);
+                SetSizeBar(3);
                 break;
             case 2:
-                liveBar.GetComponent<Image>().color = colorLiveBar[2];
+                SetColorBar(2);
+                SetSizeBar(2);
                 break;
             case 1:
-                liveBar.GetComponent<Image>().color = colorLiveBar[1];
+                SetColorBar(1);
+                SetSizeBar(1);
                 break;
             case 0:
-                liveBar.GetComponent<Image>().color = colorLiveBar[0];
+                SetColorBar(0);
+                SetSizeBar(0);
                 break;
         }
+    }
 
-        Debug.Log(currentLives);
+    void SetColorBar(int color)
+    {
+        imageLiveBar.color = Color.Lerp(imageLiveBar.color, colorLiveBar[color], timeToMergeColors * Time.deltaTime);
+    }
+
+    void SetSizeBar(float value)
+    {
+        float percentageFillAmount = percentageBar * value;
+        imageLiveBar.fillAmount = Mathf.Lerp(imageLiveBar.fillAmount, percentageFillAmount, timeToRemoveLife * Time.deltaTime);
     }
 }
