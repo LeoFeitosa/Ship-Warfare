@@ -311,10 +311,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 0.39215687}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 1}
     m_PressedColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 0.19607843}
     m_SelectedColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.4
   m_SpriteState:
@@ -332,7 +332,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 344437540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 367386264}
+        m_TargetAssemblyTypeName: LoadSceneController, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 344437539}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &482781081
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,10 +709,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.7735849, g: 0.14231044, b: 0.25929335, a: 0.39215687}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 1}
     m_PressedColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 0.19607843}
     m_SelectedColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.77254903, g: 0.14117648, b: 0.25882354, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.4
   m_SpriteState:
@@ -706,7 +730,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 887818418}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 367386264}
+        m_TargetAssemblyTypeName: LoadSceneController, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 887818417}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1115213293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1109,7 @@ GameObject:
   - component: {fileID: 2125662448}
   - component: {fileID: 2125662450}
   - component: {fileID: 2125662449}
+  - component: {fileID: 367386264}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -1127,6 +1176,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &367386264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125662447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8a9d57618afad42811bec31e81a7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2468979549187529789
 GameObject:
   m_ObjectHideFlags: 0
