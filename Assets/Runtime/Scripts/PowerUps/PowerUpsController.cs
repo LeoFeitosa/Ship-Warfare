@@ -18,12 +18,6 @@ public class PowerUpsController : MonoBehaviour
     void Start()
     {
         colorPowerUp = GetComponent<SpriteRenderer>();
-
-        GameObject backgroundPowerUp = GameObject.FindWithTag("BackgroundPowerUp");
-        if (backgroundPowerUp != null)
-        {
-            targetPositionInUI = backgroundPowerUp.transform;
-        }
     }
 
     void FixedUpdate()
@@ -31,6 +25,15 @@ public class PowerUpsController : MonoBehaviour
         InitTimerPowerUp();
         TimerPowerUp();
         MovePowerUp();
+    }
+
+    void SetTargetPositionInUI()
+    {
+        GameObject backgroundPowerUp = GameObject.FindWithTag("BackgroundPowerUp");
+        if (backgroundPowerUp != null)
+        {
+            targetPositionInUI = backgroundPowerUp.transform;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -45,6 +48,8 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
+                SetTargetPositionInUI();
+
                 initTimerIsRunning = true;
 
                 if (gameObject.tag == "PowerUpShotTriple")

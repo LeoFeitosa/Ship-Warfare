@@ -17,10 +17,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float limitMoveY = 4f;
     public float IsMove { get; private set; }
     public bool IsDead { get; private set; }
-    [SerializeField] GameObject playerPrefabExplosion;
+
+    GameObject mainHUDObject;
+    MainHUD mainHUD;
 
     void Start()
     {
+        mainHUDObject = GameObject.FindWithTag("MainHUD");
+        mainHUD = mainHUDObject.GetComponent<MainHUD>();
+
         Lives = numberOfLives;
 
         input = GetComponent<PlayerInputController>();
@@ -87,6 +92,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(3);
-        GameOverController.Instance.GameOverActive();
+        mainHUD.GameOverActive();
     }
 }

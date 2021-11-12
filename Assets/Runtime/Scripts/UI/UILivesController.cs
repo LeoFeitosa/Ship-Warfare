@@ -6,7 +6,7 @@ using UnityEngine;
 public class UILivesController : MonoBehaviour
 {
     [SerializeField] Color[] colorLiveBar;
-    Image imageLiveBar;
+    [SerializeField] Image imageLiveBar;
     static PlayerController playerController;
     float percentageBar;
     [SerializeField] float timeToRemoveLife = 1.5f;
@@ -17,10 +17,10 @@ public class UILivesController : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
 
-        GameObject backgroundLive = GameObject.FindWithTag("BackgroundLive");
-        if (backgroundLive != null)
+        GameObject liveBar = GameObject.FindWithTag("LiveBar");
+        if (liveBar != null)
         {
-            imageLiveBar = backgroundLive.GetComponent<Image>(); ;
+            imageLiveBar = liveBar.GetComponent<Image>(); ;
         }
 
         if (colorLiveBar != null)

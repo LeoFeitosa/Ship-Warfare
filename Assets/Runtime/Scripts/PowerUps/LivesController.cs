@@ -12,12 +12,6 @@ public class LivesController : MonoBehaviour
     void Start()
     {
         colorPowerUp = GetComponent<SpriteRenderer>();
-
-        GameObject backgroundPowerUp = GameObject.FindWithTag("BackgroundLive");
-        if (backgroundPowerUp != null)
-        {
-            targetPositionInUI = backgroundPowerUp.transform;
-        }
     }
 
     void FixedUpdate()
@@ -25,10 +19,20 @@ public class LivesController : MonoBehaviour
         MoveLife();
     }
 
+    void SetTargetPositionInUI()
+    {
+        GameObject backgroundPowerUp = GameObject.FindWithTag("BackgroundLiveBar");
+        if (backgroundPowerUp != null)
+        {
+            targetPositionInUI = backgroundPowerUp.transform;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
+            SetTargetPositionInUI();
             moveLife = true;
         }
     }
@@ -40,7 +44,8 @@ public class LivesController : MonoBehaviour
             float step = speedTargetPosition * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPositionInUI.position, step);
         }
-        if (transform.position == targetPositionInUI.position)
+
+        if (targetPositionInUI != null && (transform.position == targetPositionInUI.position))
         {
             Destroy(gameObject);
         }

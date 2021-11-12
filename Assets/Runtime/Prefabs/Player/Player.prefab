@@ -229,11 +229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc115e6a203c94e419e30da622fd65d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainHUD: {fileID: 4916383105157620722, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
   numberOfLives: 4
   speedMoveNormal: 7.5
   limitMoveX: 2.55
   limitMoveY: 4.62
-  playerPrefabExplosion: {fileID: 6089140818608899754, guid: d8f7db6035976844fb125c6192211554, type: 3}
 --- !u!114 &8718567972641795028
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,8 +9,11 @@ TagManager:
   - PowerUpOneMoreLife
   - BackgroundPowerUp
   - Enemy
-  - BackgroundLive
   - Life
+  - MainHUD
+  - LiveBar
+  - Undefined
+  - BackgroundLiveBar
   layers:
   - Default
   - TransparentFX
