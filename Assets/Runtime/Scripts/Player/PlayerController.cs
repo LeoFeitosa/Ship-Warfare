@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float limitMoveX = 4f;
     [SerializeField] float limitMoveY = 4f;
     public float IsMove { get; private set; }
+    public bool IsDead { get; private set; }
+    [SerializeField] GameObject playerPrefabExplosion;
 
     void Start()
     {
@@ -36,10 +38,9 @@ public class PlayerController : MonoBehaviour
         if (input.Shoot())
         {
             shotsTypes.ShootShot(input.Shoot());
-
-            /* Set type shot
-            shotsTypes.shotType = ShotsTypesController.ShotType.Triple;*/
         }
+
+        Die();
     }
 
     void Move(Vector3 move)
@@ -71,5 +72,21 @@ public class PlayerController : MonoBehaviour
                 Lives++;
             }
         }
+    }
+
+    void Die()
+    {
+        if (Lives == 0)
+        {
+            input.enabled = false;
+            IsDead = true;
+            StartCoroutine(GameOver());
+        }
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(3);
+        GameOverController.Instance.GameOverActive();
     }
 }

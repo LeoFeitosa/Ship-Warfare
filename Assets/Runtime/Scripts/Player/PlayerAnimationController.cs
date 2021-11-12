@@ -18,5 +18,9 @@ public class PlayerAnimationController : MonoBehaviour
     private void LateUpdate()
     {
         animator.SetFloat(moveId, playerController.IsMove);
+        if (playerController.IsDead)
+        {
+            animator.SetTrigger("Explosion");
+        }
     }
 }

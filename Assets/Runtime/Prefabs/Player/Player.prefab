@@ -233,6 +233,7 @@ MonoBehaviour:
   speedMoveNormal: 7.5
   limitMoveX: 2.55
   limitMoveY: 4.62
+  playerPrefabExplosion: {fileID: 6089140818608899754, guid: d8f7db6035976844fb125c6192211554, type: 3}
 --- !u!114 &8718567972641795028
 MonoBehaviour:
   m_ObjectHideFlags: 0
