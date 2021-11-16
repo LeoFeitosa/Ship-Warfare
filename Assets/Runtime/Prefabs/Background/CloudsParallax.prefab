@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  startPosition: 9
+  startPosition: 8
   randomFlipXY: 1
   render:
   - {fileID: 5487605133950847987}

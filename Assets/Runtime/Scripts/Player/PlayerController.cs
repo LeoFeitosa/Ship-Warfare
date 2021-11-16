@@ -35,17 +35,17 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move(input.Movements());
-    }
-
-    void Update()
-    {
-        if (input.Shoot())
+        if (!mainHUD.IsCountSeconds)
         {
-            shotsTypes.ShootShot(input.Shoot());
-        }
+            Move(input.Movements());
 
-        Die();
+            if (input.Shoot())
+            {
+                shotsTypes.ShootShot(input.Shoot());
+            }
+
+            Die();
+        }
     }
 
     void Move(Vector3 move)

@@ -12,6 +12,12 @@ public class MainHUD : MonoBehaviour
     [SerializeField] private GameObject playerInfo;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] int countdownSeconds;
+    public bool IsCountSeconds { get; private set; }
+
+    void Awake()
+    {
+        IsCountSeconds = true;
+    }
 
     void ShowHudOverlay()
     {
@@ -34,6 +40,7 @@ public class MainHUD : MonoBehaviour
             countdownText.text = Mathf.FloorToInt(countdownSeconds).ToString();
             yield return new WaitForSeconds(1);
             countdownSeconds--;
+            IsCountSeconds = true;
         }
 
         countdownText.text = "GO!";
@@ -41,6 +48,7 @@ public class MainHUD : MonoBehaviour
 
         countdownOverlay.SetActive(false);
         playerInfo.SetActive(true);
+        IsCountSeconds = false;
     }
 
     public void ChangeScene(string name)
