@@ -7,15 +7,13 @@ public class ParallaxController : MonoBehaviour
     [SerializeField] float speed = 1f;
     [SerializeField] float offset = 1f;
     [SerializeField] bool randomFlipX = false;
-    SpriteRenderer render;
     float imageSizeY;
     bool checkInstantiate = false;
     GameObject instanceBackground;
 
     void Start()
     {
-        render = GetComponentInChildren<SpriteRenderer>();
-        imageSizeY = render.size.y;
+        imageSizeY = GetComponentInChildren<SpriteRenderer>().size.y;
     }
 
     void FixedUpdate()
@@ -27,7 +25,7 @@ public class ParallaxController : MonoBehaviour
 
     void MoveBackground()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        transform.Translate(Vector2.down * speed * Time.fixedDeltaTime);
     }
 
     void InstantiateBackground()
