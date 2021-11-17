@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float limitMoveY = 4f;
     public float IsMove { get; private set; }
     public bool IsDead { get; private set; }
-
     GameObject mainHUDObject;
     MainHUD mainHUD;
 
