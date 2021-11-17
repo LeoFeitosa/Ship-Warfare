@@ -7,6 +7,9 @@ public class EnemyMoveUpDownController : MonoBehaviour
     [SerializeField] float speed = 0.04f;
     [SerializeField] int startPosition = 6;
     [SerializeField] bool invert = false;
+    [SerializeField] float xInitial = -2.5f;
+    [SerializeField] float xFinal = 2.5f;
+
     Vector2 direction;
     GameObject mainHUDObject;
     MainHUD mainHUD;
@@ -20,13 +23,13 @@ public class EnemyMoveUpDownController : MonoBehaviour
 
         if (invert)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - startPosition, transform.position.z);
+            transform.position = new Vector3(RandomPositionX(), transform.position.y - startPosition, transform.position.z);
             direction = Vector2.up;
             GetComponent<SpriteRenderer>().flipY = true;
         }
         else
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + startPosition, transform.position.z);
+            transform.position = new Vector3(RandomPositionX(), transform.position.y + startPosition, transform.position.z);
             direction = Vector2.down;
         }
     }
@@ -42,5 +45,15 @@ public class EnemyMoveUpDownController : MonoBehaviour
         {
             transform.Translate(direction * speed * Time.fixedDeltaTime);
         }
+    }
+
+    float RandomPositionX()
+    {
+        return Random.Range(xInitial, xFinal);
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
     }
 }

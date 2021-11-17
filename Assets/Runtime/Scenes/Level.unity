@@ -297,6 +297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intervalInitial: 1
   intervalFinal: 3
+  xInitial: -2.5
+  xFinal: 2.5
   SmallEnemiesPrefab:
   - {fileID: 4346077894659409075, guid: 446af75b373d6b747b6e5c31437764e4, type: 3}
   - {fileID: 6760245165288063983, guid: db3a356070d646246b6017eb16837b51, type: 3}
