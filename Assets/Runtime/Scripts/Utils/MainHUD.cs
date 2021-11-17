@@ -37,7 +37,7 @@ public class MainHUD : MonoBehaviour
 
         while (countdownSeconds > 0)
         {
-            countdownText.text = Mathf.FloorToInt(countdownSeconds).ToString();
+            countdownText.text = countdownSeconds.ToString();
             yield return new WaitForSeconds(1);
             countdownSeconds--;
             IsCountSeconds = true;
