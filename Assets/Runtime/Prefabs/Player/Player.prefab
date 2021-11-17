@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc115e6a203c94e419e30da622fd65d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainHUD: {fileID: 4916383105157620722, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+  collisionWithEnemy: {fileID: 8300000, guid: d4e5f711173e82644b1695f4ad5b436b, type: 3}
   numberOfLives: 4
   speedMoveNormal: 7.5
   limitMoveX: 2.55

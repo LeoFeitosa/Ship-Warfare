@@ -32,7 +32,6 @@ public class EnemyRespawnController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(countInterval);
-            Debug.Log("OK");
             countInterval = Random.Range(intervalInitial, intervalFinal);
             GetRandomEnemie(GetRandomArrayPrefab());
         }

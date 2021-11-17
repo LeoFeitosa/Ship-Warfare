@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShotsTypesController : MonoBehaviour
 {
+    [SerializeField] AudioClip shot;
     [SerializeField] Transform shotStartPosition;
     [SerializeField] GameObject shotNormalPrefab;
     [SerializeField] float angleShot = 10;
@@ -46,6 +47,7 @@ public class ShotsTypesController : MonoBehaviour
 
     IEnumerator TimeForShooting()
     {
+        AudioController.Instance.PlayAudioCue(shot);
         yield return new WaitForSeconds(delayShot);
         canShoot = true;
     }

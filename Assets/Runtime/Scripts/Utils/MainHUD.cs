@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MainHUD : MonoBehaviour
 {
+    [Header("Music")]
+    [SerializeField] AudioClip musicGameplay;
+
     [Header("Overlays")]
-    [SerializeField] private GameObject gameoverOverlay;
-    [SerializeField] private GameObject countdownOverlay;
+    [SerializeField] GameObject gameoverOverlay;
+    [SerializeField] GameObject countdownOverlay;
 
     [Header("UI Elements")]
-    [SerializeField] private GameObject playerInfo;
-    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] GameObject playerInfo;
+    [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] int countdownSeconds;
     public bool IsCountSeconds { get; private set; }
 
@@ -42,6 +45,8 @@ public class MainHUD : MonoBehaviour
             countdownSeconds--;
             IsCountSeconds = true;
         }
+
+        AudioController.Instance.PlayMusic(musicGameplay);
 
         countdownText.text = "GO!";
         yield return new WaitForSeconds(1);

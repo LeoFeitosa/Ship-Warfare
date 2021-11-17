@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0101939ea290a4583d010fbee6266c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicGameplay: {fileID: 8300000, guid: 82ccc8e7449102a40a6f2947568bb71a, type: 3}
   gameoverOverlay: {fileID: 5363845070497596453}
   countdownOverlay: {fileID: 4916383105397706194}
   playerInfo: {fileID: 3658902609503219090}

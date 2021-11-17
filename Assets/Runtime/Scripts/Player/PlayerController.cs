@@ -7,6 +7,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerInputController input;
+    [Header("Sounds")]
+    [SerializeField] AudioClip collisionWithEnemy;
     ShotsTypesController shotsTypes;
     Vector3 moveDirections = Vector3.zero;
     Rigidbody2D rb2D;
@@ -65,6 +67,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Lives >= 1)
             {
+
+                AudioController.Instance.PlayAudioCue(collisionWithEnemy);
                 Lives--;
             }
         }
