@@ -9,6 +9,7 @@ public class EnemyMoveUpDownController : MonoBehaviour
     [SerializeField] bool invert = false;
     [SerializeField] float xInitial = -2.5f;
     [SerializeField] float xFinal = 2.5f;
+    public bool IsInvert { get; private set; }
 
     Vector2 direction;
     GameObject mainHUDObject;
@@ -20,6 +21,8 @@ public class EnemyMoveUpDownController : MonoBehaviour
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
 
         transform.position = Vector3.zero;
+
+        IsInvert = invert;
 
         if (invert)
         {
