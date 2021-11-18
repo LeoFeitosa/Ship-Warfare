@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2379493146602636632}
   - component: {fileID: 2379493146602636635}
   - component: {fileID: 7489094314869019432}
-  - component: {fileID: 1896045240}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Untagged
@@ -45,7 +44,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -121,17 +119,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.08
---- !u!114 &1896045240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2379493146602636634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0ecc79605aae94289879b7c3b92f1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  shotType: 1

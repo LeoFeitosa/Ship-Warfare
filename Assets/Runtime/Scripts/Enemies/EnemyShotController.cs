@@ -6,14 +6,17 @@ using UnityEngine;
 public class EnemyShotController : MonoBehaviour
 {
     [SerializeField] Transform positionStartShot;
-    [SerializeField] GameObject enemyShotPrefab;
+    [SerializeField] GameObject enemyShotUpPrefab;
+    [SerializeField] GameObject enemyShotDownPrefab;
     [SerializeField] float delayShot = 1;
     bool canShoot = true;
     EnemyMoveUpDownController enemyMoveUpDown;
+    bool invert;
 
     void Start()
     {
         enemyMoveUpDown = GetComponent<EnemyMoveUpDownController>();
+        invert = enemyMoveUpDown.IsInvert;
     }
 
     // Update is called once per frame
@@ -22,16 +25,20 @@ public class EnemyShotController : MonoBehaviour
         if (canShoot)
         {
             canShoot = false;
-            Quaternion angle = Quaternion.identity;
-            if (enemyMoveUpDown.IsInvert)
+
+            Transform rotationShip = GetComponent<Transform>();
+            GameObject prefabShot;
+
+            if (invert)
             {
-                angle = Quaternion.Euler(0, 0, 360);
+                prefabShot = enemyShotDownPrefab;
             }
             else
             {
-                angle = Quaternion.Euler(0, 0, 0);
+                prefabShot = enemyShotUpPrefab;
             }
-            Instantiate(enemyShotPrefab, positionStartShot.position, angle);
+
+            Instantiate(prefabShot, positionStartShot.position, rotationShip.localRotation);
 
             StartCoroutine(TimeForShooting());
         }

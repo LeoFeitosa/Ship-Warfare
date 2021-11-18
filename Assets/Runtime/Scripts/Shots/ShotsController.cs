@@ -6,6 +6,12 @@ using UnityEngine;
 public class ShotsController : MonoBehaviour
 {
     [SerializeField] float speed = 5;
+    [SerializeField] bool inverse = false;
+
+    void Awake()
+    {
+        InvertY();
+    }
 
     void FixedUpdate()
     {
@@ -14,11 +20,26 @@ public class ShotsController : MonoBehaviour
 
     void Shot()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        if (inverse)
+        {
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
+        }
+    }
+
+    void InvertY()
+    {
+        if (!inverse)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1, transform.localScale.z);
+        }
     }
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }
