@@ -29,7 +29,7 @@ public class ShakeScreenController : MonoBehaviour
 
         if (cameraTransform == null)
         {
-            cameraTransform = GetComponent(typeof(Transform)) as Transform;
+            cameraTransform = GetComponent<Transform>();
         }
     }
 

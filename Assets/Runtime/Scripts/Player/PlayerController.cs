@@ -7,6 +7,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerInputController input;
+
+    [Header("Invulnerable")]
+    [SerializeField] int numberOfBlinks = 8;
+    [SerializeField] float timeBetweenColors = 2;
+
     [Header("Sounds")]
     [SerializeField] AudioClip collisionWithEnemy;
     ShotsTypesController shotsTypes;
@@ -21,11 +26,14 @@ public class PlayerController : MonoBehaviour
     public bool IsDead { get; private set; }
     GameObject mainHUDObject;
     MainHUD mainHUD;
+    SpriteRenderer spritePlayer;
+    bool playerColliderWithEnemy = true;
 
     void Start()
     {
         mainHUDObject = GameObject.FindWithTag("MainHUD");
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
+        spritePlayer = GetComponentInChildren<SpriteRenderer>();
 
         Lives = numberOfLives;
 
@@ -63,13 +71,15 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Enemy"))
+        if (col.CompareTag("Enemy") && playerColliderWithEnemy)
         {
-            if (Lives >= 1)
+            AudioController.Instance.PlayAudioCue(collisionWithEnemy);
+            ShakeScreenController.Instance.ShakeNow();
+            Lives--;
+
+            if (Lives > 0)
             {
-                AudioController.Instance.PlayAudioCue(collisionWithEnemy);
-                ShakeScreenController.Instance.ShakeNow();
-                Lives--;
+                StartCoroutine(Invulnerable());
             }
         }
 
@@ -82,10 +92,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator Invulnerable()
+    {
+        playerColliderWithEnemy = false;
+        int loops = numberOfBlinks;
+
+        while (loops >= 0)
+        {
+            spritePlayer.color = Color.red;
+            yield return new WaitForSeconds(timeBetweenColors);
+            spritePlayer.color = Color.white;
+            yield return new WaitForSeconds(timeBetweenColors);
+            loops--;
+        }
+        playerColliderWithEnemy = true;
+    }
+
     void Die()
     {
         if (Lives == 0)
         {
+            playerColliderWithEnemy = false;
             input.enabled = false;
             IsDead = true;
             StartCoroutine(GameOver());
