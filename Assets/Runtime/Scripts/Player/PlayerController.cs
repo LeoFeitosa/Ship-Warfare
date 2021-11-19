@@ -67,8 +67,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Lives >= 1)
             {
-
                 AudioController.Instance.PlayAudioCue(collisionWithEnemy);
+                ShakeScreenController.Instance.ShakeNow();
                 Lives--;
             }
         }
