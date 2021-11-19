@@ -38,6 +38,8 @@ public class MainHUD : MonoBehaviour
         playerInfo.SetActive(false);
         gameoverOverlay.SetActive(false);
 
+        yield return new WaitForSeconds(1);
+
         while (countdownSeconds > 0)
         {
             countdownText.text = countdownSeconds.ToString();

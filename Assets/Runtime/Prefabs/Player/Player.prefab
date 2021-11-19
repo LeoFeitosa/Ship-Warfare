@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc115e6a203c94e419e30da622fd65d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfBlinks: 60
+  numberOfBlinks: 56
   timeBetweenColors: 0.03
   collisionWithEnemy: {fileID: 8300000, guid: d4e5f711173e82644b1695f4ad5b436b, type: 3}
   numberOfLives: 4

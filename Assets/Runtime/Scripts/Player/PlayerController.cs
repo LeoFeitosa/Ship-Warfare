@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        GameMode.Instance.Resume();
+
         mainHUDObject = GameObject.FindWithTag("MainHUD");
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
         spritePlayer = GetComponentInChildren<SpriteRenderer>();
@@ -62,7 +64,6 @@ public class PlayerController : MonoBehaviour
         IsMove = move.x;
 
         moveDirections += move * speedMoveNormal * Time.fixedDeltaTime;
-
         moveDirections.x = Mathf.Clamp(moveDirections.x, -limitMoveX, limitMoveX);
         moveDirections.y = Mathf.Clamp(moveDirections.y, -limitMoveY, limitMoveY);
 
@@ -112,6 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Lives == 0)
         {
+            GameMode.Instance.SlowMotion();
             playerColliderWithEnemy = false;
             input.enabled = false;
             IsDead = true;
