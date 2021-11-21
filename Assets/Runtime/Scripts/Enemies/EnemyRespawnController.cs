@@ -6,7 +6,7 @@ public class EnemyRespawnController : MonoBehaviour
 {
     [Header("Random Spawn Interval")]
     [SerializeField] int intervalInitial = 2;
-    [SerializeField] int intervalFinal = 4;
+    [SerializeField] int intervalFinal = 3;
 
     [Header("Small")]
     [SerializeField] GameObject[] SmallEnemiesPrefab;

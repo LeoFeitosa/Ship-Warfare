@@ -13,6 +13,7 @@ public class EnemyShotController : MonoBehaviour
     bool canShoot = true;
     EnemyMoveUpDownController enemyMoveUpDown;
     bool invert;
+    bool enableShot = false;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class EnemyShotController : MonoBehaviour
 
     void Update()
     {
-        if (canShoot)
+        if (canShoot && enableShot)
         {
             canShoot = false;
 
@@ -53,5 +54,10 @@ public class EnemyShotController : MonoBehaviour
     {
         yield return new WaitForSeconds(delayShot);
         canShoot = true;
+    }
+
+    void OnBecameVisible()
+    {
+        enableShot = true;
     }
 }
