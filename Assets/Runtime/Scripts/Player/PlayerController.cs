@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     GameObject mainHUDObject;
     MainHUD mainHUD;
     SpriteRenderer spritePlayer;
-    bool playerColliderWithEnemy = true;
+    public bool PlayerColliderWithEnemy { get; private set; }
 
     void Start()
     {
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
         input = GetComponent<PlayerInputController>();
         shotsTypes = GetComponent<ShotsTypesController>();
         rb2D = GetComponent<Rigidbody2D>();
+
+        PlayerColliderWithEnemy = true;
     }
 
     void FixedUpdate()
@@ -72,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Enemy") && playerColliderWithEnemy)
+        if (col.CompareTag("Enemy") && PlayerColliderWithEnemy)
         {
             AudioController.Instance.PlayAudioCue(collisionWithEnemy);
             ShakeScreenController.Instance.ShakeNow();
@@ -95,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Invulnerable()
     {
-        playerColliderWithEnemy = false;
+        PlayerColliderWithEnemy = false;
         int loops = numberOfBlinks;
 
         while (loops >= 0)
@@ -106,7 +109,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenColors);
             loops--;
         }
-        playerColliderWithEnemy = true;
+        PlayerColliderWithEnemy = true;
     }
 
     void Die()
@@ -114,7 +117,7 @@ public class PlayerController : MonoBehaviour
         if (Lives == 0)
         {
             GameMode.Instance.SlowMotion();
-            playerColliderWithEnemy = false;
+            PlayerColliderWithEnemy = false;
             input.enabled = false;
             IsDead = true;
             StartCoroutine(GameOver());

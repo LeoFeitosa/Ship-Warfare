@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMoveUpDownController))]
+[RequireComponent(typeof(EnemyAnimationController))]
+[RequireComponent(typeof(EnemyController))]
 public class EnemyShotController : MonoBehaviour
 {
     [SerializeField] Transform[] positionStartShot;
     [SerializeField] GameObject enemyShotUpPrefab;
     [SerializeField] GameObject enemyShotDownPrefab;
     [SerializeField] float delayShot = 1;
-    [SerializeField] float speedColorSwap = 0.03f;
     bool canShoot = true;
     EnemyMoveUpDownController enemyMoveUpDown;
     bool invert;
@@ -22,6 +23,11 @@ public class EnemyShotController : MonoBehaviour
     }
 
     void Update()
+    {
+        InstanceShot();
+    }
+
+    void InstanceShot()
     {
         if (canShoot && enableShot)
         {
@@ -39,10 +45,10 @@ public class EnemyShotController : MonoBehaviour
                 prefabShot = enemyShotUpPrefab;
             }
 
-
             foreach (var item in positionStartShot)
             {
                 Quaternion rotation = item.rotation * rotationShip.localRotation;
+                prefabShot.tag = "Enemy";
                 Instantiate(prefabShot, item.position, rotation);
             }
 

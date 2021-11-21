@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5612869794472584268, guid: b5f81083151c81a4685daa5d9603185e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 4295838030076030331}
     - target: {fileID: 4495749346239609696, guid: b5f81083151c81a4685daa5d9603185e, type: 3}
       propertyPath: invert
       value: 0
@@ -64,6 +68,11 @@ PrefabInstance:
 --- !u!1 &4295838030076030330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7211222308082060795, guid: b5f81083151c81a4685daa5d9603185e, type: 3}
+  m_PrefabInstance: {fileID: 6885592158016970881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4295838030076030331 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7211222308082060794, guid: b5f81083151c81a4685daa5d9603185e, type: 3}
   m_PrefabInstance: {fileID: 6885592158016970881}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &-743341641852549365

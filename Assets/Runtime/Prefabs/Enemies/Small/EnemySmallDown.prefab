@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8825703938389725933, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 4346077894659409074, guid: 446af75b373d6b747b6e5c31437764e4, type: 3}
     - target: {fileID: 5610384375954125265, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
       propertyPath: m_Name
       value: EnemySmallDown

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerController))]
 public class PlayerInputController : MonoBehaviour
 {
     public Vector3 Movements()

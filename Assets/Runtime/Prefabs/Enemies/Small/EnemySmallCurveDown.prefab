@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8825703938389725933, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 4346077894659409074}
     - target: {fileID: 5610384375954125265, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
       propertyPath: m_Name
       value: EnemySmallCurveDown
@@ -64,6 +68,11 @@ PrefabInstance:
 --- !u!1 &4346077894659409075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5610384375954125265, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
+  m_PrefabInstance: {fileID: 8181993843487389026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4346077894659409074 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5610384375954125264, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
   m_PrefabInstance: {fileID: 8181993843487389026}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &-5841354143629730202

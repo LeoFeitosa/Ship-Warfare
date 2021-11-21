@@ -12,7 +12,6 @@ TagManager:
   - Life
   - MainHUD
   - LiveBar
-  - Undefined
   - BackgroundLiveBar
   layers:
   - Default
