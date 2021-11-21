@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 8300000, guid: 19e2746f73e52b64cb7d4eb4d575b5e9, type: 3}
   shotStartPosition: {fileID: 205141238}
-  shotNormalPrefab: {fileID: 973424582764118607, guid: 4cc37050ddc400246bec924ecf543e2d, type: 3}
+  shotNormalPrefab: {fileID: 973424582764118607, guid: a7787c428df361b42aa7efadc0043dbd, type: 3}
   angleShot: 10
   shotType: 0
   delayShot: 0.18

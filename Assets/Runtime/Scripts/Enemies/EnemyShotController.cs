@@ -9,6 +9,7 @@ public class EnemyShotController : MonoBehaviour
     [SerializeField] GameObject enemyShotUpPrefab;
     [SerializeField] GameObject enemyShotDownPrefab;
     [SerializeField] float delayShot = 1;
+    [SerializeField] float speedColorSwap = 0.03f;
     bool canShoot = true;
     EnemyMoveUpDownController enemyMoveUpDown;
     bool invert;
@@ -36,6 +37,7 @@ public class EnemyShotController : MonoBehaviour
             {
                 prefabShot = enemyShotUpPrefab;
             }
+
 
             foreach (var item in positionStartShot)
             {
