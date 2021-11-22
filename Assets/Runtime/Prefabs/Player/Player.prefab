@@ -253,7 +253,7 @@ MonoBehaviour:
   shotNormalPrefab: {fileID: 973424582764118607, guid: a7787c428df361b42aa7efadc0043dbd, type: 3}
   angleShot: 10
   shotType: 0
-  delayShot: 0.18
+  delayShot: 0.2
 --- !u!114 &400957698707302594
 MonoBehaviour:
   m_ObjectHideFlags: 0

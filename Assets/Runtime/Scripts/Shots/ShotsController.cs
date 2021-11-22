@@ -22,17 +22,17 @@ public class ShotsController : MonoBehaviour
     {
         if (inverse)
         {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
         else
         {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
         }
     }
 
     void InvertY()
     {
-        if (!inverse)
+        if (inverse)
         {
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1, transform.localScale.z);
         }

@@ -167,8 +167,7 @@ MonoBehaviour:
   - {fileID: 5686653476321634077}
   enemyShotUpPrefab: {fileID: 973424582764118607, guid: 4cc37050ddc400246bec924ecf543e2d, type: 3}
   enemyShotDownPrefab: {fileID: 973424582764118607, guid: 5aaf8bad034f1584a98549a4c4ba8725, type: 3}
-  delayShot: 0.5
-  speedColorSwap: 0.5
+  delayShot: 0.2
 --- !u!114 &1308708756937039972
 MonoBehaviour:
   m_ObjectHideFlags: 0

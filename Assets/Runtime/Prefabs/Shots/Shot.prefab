@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2379493146602636632}
   - component: {fileID: 2379493146602636635}
   - component: {fileID: 7489094314869019432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 2379493146602636634}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6da296ba62485547b8d2d04e2614fc6, type: 2}
+  m_Controller: {fileID: 9100000, guid: ab71594fba553864d8945259c7930a79, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

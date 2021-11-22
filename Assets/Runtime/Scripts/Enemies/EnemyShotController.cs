@@ -38,11 +38,11 @@ public class EnemyShotController : MonoBehaviour
 
             if (invert)
             {
-                prefabShot = enemyShotDownPrefab;
+                prefabShot = enemyShotUpPrefab;
             }
             else
             {
-                prefabShot = enemyShotUpPrefab;
+                prefabShot = enemyShotDownPrefab;
             }
 
             foreach (var item in positionStartShot)
