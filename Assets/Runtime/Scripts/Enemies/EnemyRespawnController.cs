@@ -8,15 +8,12 @@ public class EnemyRespawnController : MonoBehaviour
     [SerializeField] int intervalInitial = 2;
     [SerializeField] int intervalFinal = 3;
 
-    [Header("Small")]
-    [SerializeField] GameObject[] SmallEnemiesPrefab;
-
-    [Header("Medium")]
-    [SerializeField] GameObject[] MediumEnemiesPrefab;
-
     [Header("Big")]
     [SerializeField] GameObject[] BigEnemiesPrefab;
-
+    [Header("Medium")]
+    [SerializeField] GameObject[] MediumEnemiesPrefab;
+    [Header("Small")]
+    [SerializeField] GameObject[] SmallEnemiesPrefab;
     int countInterval;
 
     void Start()
