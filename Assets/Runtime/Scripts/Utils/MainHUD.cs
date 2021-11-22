@@ -15,6 +15,7 @@ public class MainHUD : MonoBehaviour
     [SerializeField] GameObject playerInfo;
     [SerializeField] TextMeshProUGUI countdownText;
     [SerializeField] int countdownSeconds;
+    [SerializeField] float perdurationOfTextAnimationcent = 1f;
     public bool IsCountSeconds { get; private set; }
 
     void Awake()
@@ -51,7 +52,15 @@ public class MainHUD : MonoBehaviour
         AudioController.Instance.PlayMusic(musicGameplay);
 
         countdownText.text = "GO!";
-        yield return new WaitForSeconds(1);
+
+        float animationDuration = perdurationOfTextAnimationcent;
+        while (animationDuration >= 0)
+        {
+            //animacao
+            countdownText.transform.localScale = Vector3.Lerp(countdownText.transform.localScale, countdownText.transform.localScale * 10, animationDuration);
+            animationDuration -= Time.deltaTime;
+            yield return new WaitForSeconds(animationDuration);
+        }
 
         countdownOverlay.SetActive(false);
         playerInfo.SetActive(true);
