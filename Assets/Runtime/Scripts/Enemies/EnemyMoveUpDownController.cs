@@ -26,13 +26,11 @@ public class EnemyMoveUpDownController : MonoBehaviour
 
         if (IsInvert)
         {
-            //transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1, transform.localScale.z);
             transform.position = new Vector3(RandomPositionX(), transform.position.y - startPosition, transform.position.z);
             direction = Vector2.up;
         }
         else
         {
-            Debug.Log("subir");
             transform.position = new Vector3(RandomPositionX(), transform.position.y + startPosition, transform.position.z);
             direction = Vector2.down;
         }

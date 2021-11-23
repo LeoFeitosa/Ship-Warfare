@@ -47,9 +47,12 @@ public class EnemyShotController : MonoBehaviour
 
             foreach (var item in positionStartShot)
             {
-                Quaternion rotation = item.rotation * rotationShip.localRotation;
-                prefabShot.tag = "Enemy";
-                Instantiate(prefabShot, item.position, rotation);
+                if (rotationShip != null)
+                {
+                    Quaternion rotation = item.rotation * rotationShip.localRotation;
+                    prefabShot.tag = "Enemy";
+                    Instantiate(prefabShot, item.position, rotation);
+                }
             }
 
             StartCoroutine(TimeForShooting());
