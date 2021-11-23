@@ -55,10 +55,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShot
       objectReference: {fileID: 0}
-    - target: {fileID: 2379493146602636635, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a6da296ba62485547b8d2d04e2614fc6, type: 2}
+    - target: {fileID: 2379493146602636634, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2379493146602636634, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
+      propertyPath: m_TagString
+      value: PlayerShot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
 --- !u!1 &973424582764118607 stripped
@@ -66,7 +70,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2379493146602636634, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
   m_PrefabInstance: {fileID: 3208784947895846677}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5588837389919242358
+--- !u!114 &7584748388051327970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

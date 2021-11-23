@@ -67,6 +67,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyShotUp
       objectReference: {fileID: 0}
+    - target: {fileID: 2379493146602636634, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2379493146602636634, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2379493146602636635, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ab71594fba553864d8945259c7930a79, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d9febf51e3799648baa58c7fb12c82b, type: 3}
 --- !u!1 &973424582764118607 stripped

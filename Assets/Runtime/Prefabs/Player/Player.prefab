@@ -233,7 +233,7 @@ MonoBehaviour:
   timeBetweenColors: 0.03
   collisionWithEnemy: {fileID: 8300000, guid: d4e5f711173e82644b1695f4ad5b436b, type: 3}
   numberOfLives: 4
-  speedMoveNormal: 7.5
+  speedMoveNormal: 7.7
   limitMoveX: 2.55
   limitMoveY: 4.62
 --- !u!114 &8718567972641795028
