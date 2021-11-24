@@ -8,12 +8,15 @@ public class EnemyController : MonoBehaviour
     EnemyAnimationController enemyAnimation;
     PlayerController player;
     BoxCollider2D colliderEnemy;
+    UIScoreController uIScoreController;
+    [SerializeField] int pointsToBeDestroyed;
 
     void Start()
     {
         enemyAnimation = GetComponent<EnemyAnimationController>();
         colliderEnemy = GetComponent<BoxCollider2D>();
         player = FindObjectOfType<PlayerController>();
+        uIScoreController = FindObjectOfType<UIScoreController>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -32,6 +35,7 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
+        uIScoreController.SetScore(pointsToBeDestroyed);
         colliderEnemy.enabled = false;
         enemyAnimation.IsDead = true;
     }

@@ -596,10 +596,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainHUD
       objectReference: {fileID: 0}
-    - target: {fileID: 4916383104128077617, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
 --- !u!1001 &5254303908928507481
