@@ -76,4 +76,9 @@ public class MainHUD : MonoBehaviour
     {
         SceneController.Instance.LoadScene(name);
     }
+
+    public void PlayAudioButton(AudioClip soundButton)
+    {
+        AudioController.Instance.PlayAudioCue(soundButton);
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] AudioClip soundEnemyDie;
     EnemyAnimationController enemyAnimation;
     PlayerController player;
     BoxCollider2D colliderEnemy;
@@ -23,6 +24,7 @@ public class EnemyController : MonoBehaviour
     {
         if (col.CompareTag("PlayerShot"))
         {
+            AudioController.Instance.PlayAudioCue(soundEnemyDie);
             Die();
             Destroy(col.gameObject);
         }
