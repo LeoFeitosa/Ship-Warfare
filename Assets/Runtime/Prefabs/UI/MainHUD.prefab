@@ -167,7 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0101939ea290a4583d010fbee6266c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicGameplay: {fileID: 8300000, guid: 82ccc8e7449102a40a6f2947568bb71a, type: 3}
+  musicGameplay: {fileID: 8300000, guid: f910951e035639d458520e6521dba6a4, type: 3}
+  musicGameover: {fileID: 8300000, guid: 732741c921820f44b8e0224d0dc011cc, type: 3}
   gameoverOverlay: {fileID: 5363845070497596453}
   countdownOverlay: {fileID: 4916383105397706194}
   playerInfo: {fileID: 3658902609503219090}
@@ -985,7 +986,7 @@ MonoBehaviour:
         m_MethodName: PlayAudioButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 7d5245b2096d6d44f83a14a4e0c8cabe, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 175c80e4eb149924bbe29553d506203f, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1005,7 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 9
+  - eventID: 10
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -1526,7 +1527,7 @@ MonoBehaviour:
         m_MethodName: PlayAudioButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 7d5245b2096d6d44f83a14a4e0c8cabe, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 175c80e4eb149924bbe29553d506203f, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1546,7 +1547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 9
+  - eventID: 10
     callback:
       m_PersistentCalls:
         m_Calls:

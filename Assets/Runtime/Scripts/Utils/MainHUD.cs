@@ -6,6 +6,7 @@ public class MainHUD : MonoBehaviour
 {
     [Header("Music")]
     [SerializeField] AudioClip musicGameplay;
+    [SerializeField] AudioClip musicGameover;
 
     [Header("Overlays")]
     [SerializeField] GameObject gameoverOverlay;
@@ -31,6 +32,7 @@ public class MainHUD : MonoBehaviour
 
     public void GameOverActive()
     {
+        AudioController.Instance.PlayMusic(musicGameover);
         gameoverOverlay.SetActive(true);
     }
 
