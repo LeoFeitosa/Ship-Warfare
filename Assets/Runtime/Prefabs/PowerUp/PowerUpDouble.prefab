@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6c2eafb5c70344d9f5f9740ea36f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundWhenPickingUp: {fileID: 8300000, guid: fec7238dee820ea438cfa0c6520bb7cd, type: 3}
   duration: 20
   sizeAfterPickingUp: 0.832
   speedTargetPosition: 38

@@ -30,11 +30,13 @@ public class AudioController : MonoBehaviour
 
     public void PlayAudioCue(AudioClip clip)
     {
+        sfxSource.pitch = 1;
         sfxSource.PlayOneShot(clip);
     }
 
     public void PlayMusic(AudioClip clip)
     {
+        musicSource.pitch = 1;
         musicSource.clip = clip;
         musicSource.Play();
     }

@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float timeBetweenColors = 2;
 
     [Header("Sounds")]
-    [SerializeField] AudioClip collisionWithEnemy;
+    [SerializeField] AudioClip soundPlayerDie;
+    [SerializeField] AudioClip soundCollisionWithEnemy;
     ShotsTypesController shotsTypes;
     Vector3 moveDirections = Vector3.zero;
     Rigidbody2D rb2D;
@@ -77,7 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         if (col.CompareTag("Enemy") && PlayerColliderWithEnemy)
         {
-            AudioController.Instance.PlayAudioCue(collisionWithEnemy);
+            AudioController.Instance.PlayAudioCue(soundCollisionWithEnemy);
             ShakeScreenController.Instance.ShakeNow();
             Lives--;
 
@@ -114,8 +115,9 @@ public class PlayerController : MonoBehaviour
 
     void Die()
     {
-        if (Lives == 0)
+        if (Lives == 0 && !IsDead)
         {
+            AudioController.Instance.PlayAudioCue(soundPlayerDie);
             GameMode.Instance.SlowMotion();
             PlayerColliderWithEnemy = false;
             input.enabled = false;

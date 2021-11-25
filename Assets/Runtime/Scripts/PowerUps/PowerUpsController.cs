@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PowerUpsController : MonoBehaviour
 {
+    [SerializeField] AudioClip soundWhenPickingUp;
     [SerializeField] float duration = 2;
     [SerializeField] float sizeAfterPickingUp = 0.832f;
     Transform targetPositionInUI;
@@ -48,6 +49,8 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
+                AudioController.Instance.PlayAudioCue(soundWhenPickingUp);
+
                 SetTargetPositionInUI();
 
                 initTimerIsRunning = true;

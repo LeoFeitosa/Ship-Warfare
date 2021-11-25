@@ -231,7 +231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfBlinks: 54
   timeBetweenColors: 0.03
-  collisionWithEnemy: {fileID: 8300000, guid: d4e5f711173e82644b1695f4ad5b436b, type: 3}
+  soundPlayerDie: {fileID: 8300000, guid: ac48f7e7d012cfc489a96c51ccf5bb11, type: 3}
+  soundCollisionWithEnemy: {fileID: 8300000, guid: d4e5f711173e82644b1695f4ad5b436b, type: 3}
   numberOfLives: 4
   speedMoveNormal: 7.7
   limitMoveX: 2.55

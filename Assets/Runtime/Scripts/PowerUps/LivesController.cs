@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LivesController : MonoBehaviour
 {
+    [SerializeField] AudioClip soundWhenPickingUp;
     [SerializeField] float speedTargetPosition = 4f;
     Transform targetPositionInUI;
     bool moveLife = false;
@@ -32,6 +33,8 @@ public class LivesController : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            AudioController.Instance.PlayAudioCue(soundWhenPickingUp);
+
             SetTargetPositionInUI();
             moveLife = true;
         }
