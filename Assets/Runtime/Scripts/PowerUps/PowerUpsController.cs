@@ -26,6 +26,12 @@ public class PowerUpsController : MonoBehaviour
         InitTimerPowerUp();
         TimerPowerUp();
         MovePowerUp();
+
+        transform.position += Vector3.Scale(
+            new Vector3(
+                Mathf.PingPong(Time.time, 8) - 4, 0, 0
+                ), new Vector3(0.008f, 1, 1)
+                );
     }
 
     void SetTargetPositionInUI()

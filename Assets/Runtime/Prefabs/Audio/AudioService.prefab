@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 5254303910412530285}
   sfxSource: {fileID: 5254303910412530282}
+  timeToFade: 0.06
 --- !u!82 &5254303910412530285
 AudioSource:
   m_ObjectHideFlags: 0

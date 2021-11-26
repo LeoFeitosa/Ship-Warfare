@@ -24,8 +24,8 @@ public class EnemyController : MonoBehaviour
     {
         if (col.CompareTag("PlayerShot"))
         {
-            AudioController.Instance.PlayAudioCue(soundEnemyDie);
             Die();
+            AudioController.Instance.PlayAudioCue(soundEnemyDie);
             Destroy(col.gameObject);
         }
 

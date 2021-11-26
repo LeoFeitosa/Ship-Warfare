@@ -7,6 +7,7 @@ public class AudioController : MonoBehaviour
     public static AudioController Instance;
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
+    [SerializeField] float timeToFade = 3;
 
     void Awake()
     {
@@ -36,8 +37,30 @@ public class AudioController : MonoBehaviour
 
     public void PlayMusic(AudioClip clip)
     {
-        musicSource.pitch = 1;
+        if (clip != null)
+        {
+            StartCoroutine(PlayMusicWithFade(clip));
+        }
+    }
+
+    IEnumerator PlayMusicWithFade(AudioClip clip)
+    {
+        for (float volume = 1; volume >= 0; volume -= timeToFade)
+        {
+            yield return new WaitForSeconds(0.1f);
+            musicSource.volume = volume;
+        }
+
+        musicSource.volume = 0;
         musicSource.clip = clip;
         musicSource.Play();
+
+        for (float volume = 0; volume <= 1; volume += timeToFade)
+        {
+            yield return new WaitForSeconds(0.1f);
+            musicSource.volume = volume;
+        }
+
+        musicSource.volume = 1;
     }
 }

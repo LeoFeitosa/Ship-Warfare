@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     [Header("Invulnerable")]
     [SerializeField] int numberOfBlinks = 8;
     [SerializeField] float timeBetweenColors = 2;
-
+    [Header("Music")]
+    [SerializeField] AudioClip musicGameover;
     [Header("Sounds")]
     [SerializeField] AudioClip soundPlayerDie;
     [SerializeField] AudioClip soundCollisionWithEnemy;
@@ -117,6 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Lives == 0 && !IsDead)
         {
+            AudioController.Instance.PlayMusic(musicGameover);
             AudioController.Instance.PlayAudioCue(soundPlayerDie);
             GameMode.Instance.SlowMotion();
             PlayerColliderWithEnemy = false;

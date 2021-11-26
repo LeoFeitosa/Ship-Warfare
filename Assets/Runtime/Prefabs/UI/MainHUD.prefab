@@ -168,7 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicGameplay: {fileID: 8300000, guid: f910951e035639d458520e6521dba6a4, type: 3}
-  musicGameover: {fileID: 8300000, guid: 732741c921820f44b8e0224d0dc011cc, type: 3}
+  soundBipCount: {fileID: 8300000, guid: 27a1a5471dc3c65468c86a9efb573453, type: 3}
+  soundBipGo: {fileID: 8300000, guid: b30f3b82b278b524a8db1e4fe9e96833, type: 3}
   gameoverOverlay: {fileID: 5363845070497596453}
   countdownOverlay: {fileID: 4916383105397706194}
   playerInfo: {fileID: 3658902609503219090}

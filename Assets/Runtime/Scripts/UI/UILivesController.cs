@@ -31,29 +31,8 @@ public class UILivesController : MonoBehaviour
 
     void LateUpdate()
     {
-        switch (playerController.Lives)
-        {
-            case 4:
-                SetColorBar(4);
-                SetSizeBar(4);
-                break;
-            case 3:
-                SetColorBar(3);
-                SetSizeBar(3);
-                break;
-            case 2:
-                SetColorBar(2);
-                SetSizeBar(2);
-                break;
-            case 1:
-                SetColorBar(1);
-                SetSizeBar(1);
-                break;
-            case 0:
-                SetColorBar(0);
-                SetSizeBar(0);
-                break;
-        }
+        SetColorBar(playerController.Lives);
+        SetSizeBar(playerController.Lives);
     }
 
     void SetColorBar(int color)

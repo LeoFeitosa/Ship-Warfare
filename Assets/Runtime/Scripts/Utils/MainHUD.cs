@@ -6,7 +6,10 @@ public class MainHUD : MonoBehaviour
 {
     [Header("Music")]
     [SerializeField] AudioClip musicGameplay;
-    [SerializeField] AudioClip musicGameover;
+
+    [Header("Sounds")]
+    [SerializeField] AudioClip soundBipCount;
+    [SerializeField] AudioClip soundBipGo;
 
     [Header("Overlays")]
     [SerializeField] GameObject gameoverOverlay;
@@ -32,12 +35,12 @@ public class MainHUD : MonoBehaviour
 
     public void GameOverActive()
     {
-        AudioController.Instance.PlayMusic(musicGameover);
         gameoverOverlay.SetActive(true);
     }
 
     public IEnumerator ShowCountdown()
     {
+        AudioController.Instance.PlayMusic(musicGameplay);
         countdownOverlay.SetActive(true);
         playerInfo.SetActive(false);
         gameoverOverlay.SetActive(false);
@@ -47,13 +50,13 @@ public class MainHUD : MonoBehaviour
         while (countdownSeconds > 0)
         {
             countdownText.text = countdownSeconds.ToString();
+            AudioController.Instance.PlayAudioCue(soundBipCount);
             yield return new WaitForSeconds(1);
             countdownSeconds--;
             IsCountSeconds = true;
         }
 
-        AudioController.Instance.PlayMusic(musicGameplay);
-
+        AudioController.Instance.PlayAudioCue(soundBipGo);
         countdownText.text = "GO!";
 
         //animacao
