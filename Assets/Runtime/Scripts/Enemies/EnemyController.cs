@@ -46,7 +46,6 @@ public class EnemyController : MonoBehaviour
     {
         if (Random.value < probabilityOfAppearing)
         {
-
             Instantiate(PowerUpsPrefab[Random.Range(0, PowerUpsPrefab.Length)], transform.position, Quaternion.identity);
         }
     }

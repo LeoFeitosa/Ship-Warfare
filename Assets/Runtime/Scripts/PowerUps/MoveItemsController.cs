@@ -11,23 +11,20 @@ public class MoveItemsController : MonoBehaviour
     [SerializeField] float limitMoveY;
     Vector3 moveDirections = Vector3.zero;
     bool stopMove = true;
-    [SerializeField] float angleZ = 45;
+    bool stopRotate = true;
 
     void Start()
     {
         moveDirections = RandomBool() ? DirectionPositive() : DirectionNegative();
+        speedRoration = RandomBool() ? speedRoration : -speedRoration;
         stopMove = false;
-
-        transform.rotation = Quaternion.Euler(
-            transform.rotation.x,
-            transform.rotation.y,
-            angleZ);
+        stopRotate = false;
     }
 
     void LateUpdate()
     {
         Move();
-        PowerUpRotation();
+        RotatePowerUp();
     }
 
     void Move()
@@ -70,18 +67,16 @@ public class MoveItemsController : MonoBehaviour
         return false;
     }
 
-    void PowerUpRotation()
+    void RotatePowerUp()
     {
-        //corrigir rotate
-        RotateY(-angleZ);
-    }
-
-    void RotateY(float angle)
-    {
-        transform.eulerAngles = new Vector3(
-            transform.eulerAngles.x,
-            transform.eulerAngles.y,
-            Mathf.LerpAngle(transform.eulerAngles.z, angle, Time.deltaTime * speedRoration));
+        if (stopRotate)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Mathf.Lerp(transform.rotation.z, 0, speedRoration * Time.deltaTime));
+        }
+        else
+        {
+            transform.Rotate(0, 0, speedRoration * Time.deltaTime, Space.Self);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -89,6 +84,7 @@ public class MoveItemsController : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             stopMove = true;
+            stopRotate = true;
         }
     }
 }

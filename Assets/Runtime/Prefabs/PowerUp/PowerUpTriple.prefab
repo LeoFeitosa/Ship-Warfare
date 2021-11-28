@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMove: 1.6
-  speedRoration: 1.8
+  speedRoration: 20
   limitMoveX: 2.4
   limitMoveY: 4.63
-  angleZ: 45
