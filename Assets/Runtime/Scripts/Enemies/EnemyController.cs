@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Respawn PowerUps")]
+    [Range(0.01f, 1f)]
+    [SerializeField] float powerupRespawnChancePercentage = 1;
+    [SerializeField] GameObject[] PowerUpsPrefab;
+
+    [Header("Data Enemies")]
     [SerializeField] AudioClip soundEnemyDie;
     EnemyAnimationController enemyAnimation;
     PlayerController player;
@@ -26,12 +32,21 @@ public class EnemyController : MonoBehaviour
         {
             Die();
             AudioController.Instance.PlayAudioCue(soundEnemyDie);
+            RespawnPowerUp();
             Destroy(col.gameObject);
         }
 
         if (col.CompareTag("Player") && (player != null && player.PlayerColliderWithEnemy))
         {
             Die();
+        }
+    }
+
+    void RespawnPowerUp()
+    {
+        if (Random.value < powerupRespawnChancePercentage)
+        {
+            Instantiate(PowerUpsPrefab[Random.Range(0, PowerUpsPrefab.Length)]);
         }
     }
 
