@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Respawn PowerUps")]
     [Range(0.01f, 1f)]
-    [SerializeField] float powerupRespawnChancePercentage = 1;
+    [SerializeField] float probabilityOfAppearing = 1;
     [SerializeField] GameObject[] PowerUpsPrefab;
 
     [Header("Data Enemies")]
@@ -44,9 +44,10 @@ public class EnemyController : MonoBehaviour
 
     void RespawnPowerUp()
     {
-        if (Random.value < powerupRespawnChancePercentage)
+        if (Random.value < probabilityOfAppearing)
         {
-            Instantiate(PowerUpsPrefab[Random.Range(0, PowerUpsPrefab.Length)]);
+
+            Instantiate(PowerUpsPrefab[Random.Range(0, PowerUpsPrefab.Length)], transform.position, Quaternion.identity);
         }
     }
 

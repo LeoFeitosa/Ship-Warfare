@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2533092756783890163}
   - component: {fileID: 446696656}
   - component: {fileID: 8837763923336381539}
+  - component: {fileID: -2440137855288514167}
   m_Layer: 7
   m_Name: PowerUpTriple
   m_TagString: PowerUpShotTriple
@@ -136,3 +137,18 @@ MonoBehaviour:
   duration: 10
   sizeAfterPickingUp: 0.832
   speedTargetPosition: 38
+--- !u!114 &-2440137855288514167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533092756783890162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b8be3c629eeb4458be96c19a3cf7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMove: 1.6
+  limitMoveX: 2.4
+  limitMoveY: 4.63

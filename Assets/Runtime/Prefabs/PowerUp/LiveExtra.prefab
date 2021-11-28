@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6521963264600655782}
   - component: {fileID: 6521963264600655780}
   - component: {fileID: 375547421}
+  - component: {fileID: 764751138534203059}
   m_Layer: 7
   m_Name: LiveExtra
   m_TagString: Life
@@ -114,3 +115,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundWhenPickingUp: {fileID: 8300000, guid: ba73a5bc13f2481488b6021d817e4389, type: 3}
   speedTargetPosition: 38
+--- !u!114 &764751138534203059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521963264600655783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b8be3c629eeb4458be96c19a3cf7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMove: 1.6
+  limitMoveX: 2.4
+  limitMoveY: 4.63

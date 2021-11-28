@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 917324912513783991}
   - component: {fileID: 2127661471}
   - component: {fileID: 8342745455262504923}
+  - component: {fileID: -7572953733562865721}
   m_Layer: 7
   m_Name: PowerUpDouble
   m_TagString: PowerUpShotDouble
@@ -136,3 +137,18 @@ MonoBehaviour:
   duration: 20
   sizeAfterPickingUp: 0.832
   speedTargetPosition: 38
+--- !u!114 &-7572953733562865721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917324912513783990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b8be3c629eeb4458be96c19a3cf7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMove: 1.6
+  limitMoveX: 2.4
+  limitMoveY: 4.63
