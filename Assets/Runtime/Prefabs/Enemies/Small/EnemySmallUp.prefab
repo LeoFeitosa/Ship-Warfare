@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfb136df5e983545b08b704c37ced5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probabilityOfAppearing: 0.1
+  probabilityOfAppearing: 0.2
   PowerUpsPrefab:
   - {fileID: 6521963264600655783, guid: a6ee381ee0f8a6e4dbea2afa9b7937ea, type: 3}
   - {fileID: 917324912513783990, guid: 5e5f9b8a5e422dd4bbdbd26dc9c8dc4a, type: 3}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMoveUpDownController))]
@@ -15,25 +16,30 @@ public class EnemyShotController : MonoBehaviour
     EnemyMoveUpDownController enemyMoveUpDown;
     bool invert;
     bool enableShot = false;
+    EnemyController enemyController;
+    EnemyAnimationController enemyAnimation;
+    Transform rotationShip;
 
     void Start()
     {
         enemyMoveUpDown = GetComponent<EnemyMoveUpDownController>();
+        enemyController = GetComponent<EnemyController>();
+        enemyAnimation = GetComponent<EnemyAnimationController>();
+        rotationShip = GetComponent<Transform>();
         invert = enemyMoveUpDown.IsInvert;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         InstanceShot();
     }
 
     void InstanceShot()
     {
-        if (canShoot && enableShot)
+        if (canShoot && enableShot && rotationShip != null && !enemyAnimation.IsDead)
         {
             canShoot = false;
 
-            Transform rotationShip = GetComponent<Transform>();
             GameObject prefabShot;
 
             if (invert)
@@ -47,12 +53,9 @@ public class EnemyShotController : MonoBehaviour
 
             foreach (var item in positionStartShot)
             {
-                if (rotationShip != null)
-                {
-                    Quaternion rotation = item.rotation * rotationShip.localRotation;
-                    prefabShot.tag = "Enemy";
-                    Instantiate(prefabShot, item.position, rotation);
-                }
+                Quaternion rotation = item.rotation * rotationShip.localRotation;
+                prefabShot.tag = "Enemy";
+                Instantiate(prefabShot, item.position, rotation);
             }
 
             StartCoroutine(TimeForShooting());

@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2D;
     [SerializeField] int numberOfLives = 4;
     public int Lives { get; private set; }
+    public int MaxLives { get; private set; }
     [SerializeField] float speedMoveNormal = 0.5f;
     [SerializeField] float limitMoveX = 4f;
     [SerializeField] float limitMoveY = 4f;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     GameObject mainHUDObject;
     MainHUD mainHUD;
     SpriteRenderer spritePlayer;
+    CapsuleCollider2D colliderPlayer;
     public bool PlayerColliderWithEnemy { get; private set; }
 
     void Start()
@@ -39,7 +41,9 @@ public class PlayerController : MonoBehaviour
         mainHUDObject = GameObject.FindWithTag("MainHUD");
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
         spritePlayer = GetComponentInChildren<SpriteRenderer>();
+        colliderPlayer = GetComponentInChildren<CapsuleCollider2D>();
 
+        MaxLives = numberOfLives;
         Lives = numberOfLives;
 
         input = GetComponent<PlayerInputController>();
@@ -81,7 +85,14 @@ public class PlayerController : MonoBehaviour
         {
             AudioController.Instance.PlayAudioCue(soundCollisionWithEnemy);
             ShakeScreenController.Instance.ShakeNow();
-            Lives--;
+            if (Lives > 0)
+            {
+                Lives--;
+            }
+            else
+            {
+                Lives = 0;
+            }
 
             if (Lives > 0)
             {
@@ -91,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
         if (col.CompareTag("Life"))
         {
-            if (Lives < numberOfLives)
+            if (Lives < numberOfLives && Lives > 0)
             {
                 Lives++;
             }
@@ -121,6 +132,7 @@ public class PlayerController : MonoBehaviour
             AudioController.Instance.PlayMusic(musicGameover);
             AudioController.Instance.PlayAudioCue(soundPlayerDie);
             GameMode.Instance.SlowMotion();
+            colliderPlayer.enabled = false;
             PlayerColliderWithEnemy = false;
             input.enabled = false;
             IsDead = true;

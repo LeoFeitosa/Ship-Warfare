@@ -64,19 +64,8 @@ public class PowerUpsController : MonoBehaviour
                 {
                     PowerUpDouble();
                 }
-
-                if (gameObject.tag == "PowerUpOneMoreLife")
-                {
-                    PowerUpOneMoreLife();
-                }
             }
         }
-    }
-
-    void PowerUpOneMoreLife()
-    {
-        Debug.Log("Mais uma vida");
-        Destroy(gameObject);
     }
 
     void PowerUpNormal()

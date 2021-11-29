@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5023876902834969935}
   m_LocalRotation: {x: 0, y: 0, z: -0.30070576, w: 0.953717}
-  m_LocalPosition: {x: -0.38, y: -0.46, z: 0}
+  m_LocalPosition: {x: -0.4, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5151964870939655775}
@@ -221,7 +221,7 @@ MonoBehaviour:
   - {fileID: 8768143994093357326}
   enemyShotUpPrefab: {fileID: 973424582764118607, guid: 4cc37050ddc400246bec924ecf543e2d, type: 3}
   enemyShotDownPrefab: {fileID: 973424582764118607, guid: 5aaf8bad034f1584a98549a4c4ba8725, type: 3}
-  delayShot: 0.3
+  delayShot: 0.4
 --- !u!114 &1645944839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfb136df5e983545b08b704c37ced5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probabilityOfAppearing: 0.3
+  probabilityOfAppearing: 0.4
   PowerUpsPrefab:
   - {fileID: 6521963264600655783, guid: a6ee381ee0f8a6e4dbea2afa9b7937ea, type: 3}
   - {fileID: 917324912513783990, guid: 5e5f9b8a5e422dd4bbdbd26dc9c8dc4a, type: 3}
@@ -278,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6617153371930119715}
   m_LocalRotation: {x: 0, y: 0, z: 0.30070576, w: 0.953717}
-  m_LocalPosition: {x: 0.38, y: -0.46, z: 0}
+  m_LocalPosition: {x: 0.4, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5151964870939655775}

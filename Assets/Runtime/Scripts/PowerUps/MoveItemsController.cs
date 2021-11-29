@@ -87,4 +87,9 @@ public class MoveItemsController : MonoBehaviour
             stopRotate = true;
         }
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
 }

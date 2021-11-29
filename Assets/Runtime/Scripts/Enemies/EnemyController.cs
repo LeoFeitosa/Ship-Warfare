@@ -45,16 +45,26 @@ public class EnemyController : MonoBehaviour
     {
         if (Random.value < probabilityOfAppearing)
         {
-            Instantiate(PowerUpsPrefab[Random.Range(0, PowerUpsPrefab.Length)], transform.position, Quaternion.identity);
+            GameObject powerUp = PowerUpsPrefab[Random.Range(0, PowerUpsPrefab.Length)];
+
+            if (powerUp.name == "LiveExtra" && player.Lives < player.MaxLives && FindObjectOfType<LivesController>() == null)
+            {
+                Instantiate(powerUp, transform.position, Quaternion.identity);
+            }
+
+            if (powerUp.name != "LiveExtra" && FindObjectOfType<PowerUpsController>() == null)
+            {
+                Instantiate(powerUp, transform.position, Quaternion.identity);
+            }
         }
     }
 
     void Die()
     {
+        enemyAnimation.IsDead = true;
+        colliderEnemy.enabled = false;
         uIScoreController = FindObjectOfType<UIScoreController>();
         uIScoreController.SetScore(pointsToBeDestroyed);
-        colliderEnemy.enabled = false;
-        enemyAnimation.IsDead = true;
     }
 
     void DestroyObject()
