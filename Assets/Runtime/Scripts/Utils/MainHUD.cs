@@ -14,6 +14,7 @@ public class MainHUD : MonoBehaviour
     [Header("Overlays")]
     [SerializeField] GameObject gameoverOverlay;
     [SerializeField] GameObject countdownOverlay;
+    [SerializeField] GameObject scoreOverlay;
 
     [Header("UI Elements")]
     [SerializeField] GameObject playerInfo;
@@ -44,6 +45,7 @@ public class MainHUD : MonoBehaviour
         countdownOverlay.SetActive(true);
         playerInfo.SetActive(false);
         gameoverOverlay.SetActive(false);
+        scoreOverlay.SetActive(false);
 
         yield return new WaitForSeconds(1);
 
@@ -72,6 +74,7 @@ public class MainHUD : MonoBehaviour
             yield return new WaitForSeconds(animationDuration);
         }
 
+        scoreOverlay.SetActive(true);
         countdownOverlay.SetActive(false);
         playerInfo.SetActive(true);
         IsCountSeconds = false;
