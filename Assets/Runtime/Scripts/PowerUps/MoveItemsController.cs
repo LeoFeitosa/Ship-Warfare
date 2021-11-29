@@ -7,14 +7,17 @@ public class MoveItemsController : MonoBehaviour
 {
     [SerializeField] float speedMove;
     [SerializeField] float speedRoration;
-    [SerializeField] float limitMoveX;
-    [SerializeField] float limitMoveY;
+    GameObject player;
+    PlayerController playerController;
     Vector3 moveDirections = Vector3.zero;
     bool stopMove = true;
     bool stopRotate = true;
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+
         moveDirections = RandomBool() ? DirectionPositive() : DirectionNegative();
         speedRoration = RandomBool() ? speedRoration : -speedRoration;
         stopMove = false;
@@ -34,12 +37,12 @@ public class MoveItemsController : MonoBehaviour
             return;
         }
 
-        if (transform.position.x < -limitMoveX || transform.position.y < -limitMoveY)
+        if (transform.position.x < -playerController.LimitsMove.x || transform.position.y < -playerController.LimitsMove.y)
         {
             moveDirections = DirectionPositive();
         }
 
-        if (transform.position.x > limitMoveX || transform.position.y > limitMoveY)
+        if (transform.position.x > playerController.LimitsMove.x || transform.position.y > playerController.LimitsMove.y)
         {
             moveDirections = DirectionNegative();
         }

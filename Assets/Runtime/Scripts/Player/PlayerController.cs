@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
     public int Lives { get; private set; }
     public int MaxLives { get; private set; }
     [SerializeField] float speedMoveNormal = 0.5f;
-    [SerializeField] float limitMoveX = 4f;
-    [SerializeField] float limitMoveY = 4f;
+    [SerializeField] Vector2 limitMoveXY;
+    public Vector2 LimitsMove { get; private set; }
     public float IsMove { get; private set; }
     public bool IsDead { get; private set; }
     GameObject mainHUDObject;
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         spritePlayer = GetComponentInChildren<SpriteRenderer>();
         colliderPlayer = GetComponentInChildren<CapsuleCollider2D>();
 
+        LimitsMove = limitMoveXY;
         MaxLives = numberOfLives;
         Lives = numberOfLives;
 
@@ -73,8 +74,8 @@ public class PlayerController : MonoBehaviour
         IsMove = move.x;
 
         moveDirections += move * speedMoveNormal * Time.fixedDeltaTime;
-        moveDirections.x = Mathf.Clamp(moveDirections.x, -limitMoveX, limitMoveX);
-        moveDirections.y = Mathf.Clamp(moveDirections.y, -limitMoveY, limitMoveY);
+        moveDirections.x = Mathf.Clamp(moveDirections.x, -limitMoveXY.x, limitMoveXY.x);
+        moveDirections.y = Mathf.Clamp(moveDirections.y, -limitMoveXY.y, limitMoveXY.y);
 
         rb2D.MovePosition(moveDirections);
     }

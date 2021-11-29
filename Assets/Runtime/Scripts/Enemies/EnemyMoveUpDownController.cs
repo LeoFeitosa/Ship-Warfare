@@ -7,18 +7,21 @@ public class EnemyMoveUpDownController : MonoBehaviour
     [SerializeField] float speed = 0.04f;
     [SerializeField] int startPosition = 6;
     [SerializeField] bool invert = false;
-    [SerializeField] float xInitial = -2.5f;
-    [SerializeField] float xFinal = 2.5f;
     public bool IsInvert { get; private set; }
 
     Vector2 direction;
     GameObject mainHUDObject;
     MainHUD mainHUD;
+    GameObject player;
+    PlayerController playerController;
 
     void Start()
     {
         mainHUDObject = GameObject.FindWithTag("MainHUD");
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
+
+        player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
 
         transform.position = Vector3.zero;
 
@@ -51,7 +54,7 @@ public class EnemyMoveUpDownController : MonoBehaviour
 
     float RandomPositionX()
     {
-        return Random.Range(xInitial, xFinal);
+        return Random.Range(-playerController.LimitsMove.x, playerController.LimitsMove.x);
     }
 
     void OnBecameInvisible()
