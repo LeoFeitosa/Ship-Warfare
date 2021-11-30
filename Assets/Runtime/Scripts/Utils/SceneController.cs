@@ -31,6 +31,7 @@ public class SceneController : MonoBehaviour
 
     IEnumerator LoadAsyncScene(string name)
     {
+        yield return new WaitForSeconds(1);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
 
         while (!asyncLoad.isDone)
@@ -40,7 +41,7 @@ public class SceneController : MonoBehaviour
 
         if (asyncLoad.isDone)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             animator.SetTrigger("FadeOut");
         }
     }
