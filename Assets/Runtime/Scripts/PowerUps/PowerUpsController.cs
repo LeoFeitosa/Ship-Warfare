@@ -21,7 +21,7 @@ public class PowerUpsController : MonoBehaviour
         colorPowerUp = GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         InitTimerPowerUp();
         TimerPowerUp();
@@ -131,7 +131,7 @@ public class PowerUpsController : MonoBehaviour
     {
         if (movePowerUp && targetPositionInUI != null)
         {
-            float step = speedTargetPosition * Time.fixedDeltaTime;
+            float step = speedTargetPosition * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPositionInUI.position, step);
         }
     }
@@ -148,7 +148,7 @@ public class PowerUpsController : MonoBehaviour
     {
         if (timerIsRunning && !initTimerIsRunning)
         {
-            float percent = 1.0f / duration * Time.fixedDeltaTime;
+            float percent = 1.0f / duration * Time.deltaTime;
             PowerUpDuration -= percent;
             if (PowerUpDuration <= 0.02f)
             {
@@ -164,7 +164,7 @@ public class PowerUpsController : MonoBehaviour
     {
         if (initTimerIsRunning)
         {
-            float percent = 1.0f / 0.2f * Time.fixedDeltaTime;
+            float percent = 1.0f / 0.2f * Time.deltaTime;
             PowerUpDuration += percent;
             if (PowerUpDuration >= 1)
             {

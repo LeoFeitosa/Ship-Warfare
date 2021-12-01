@@ -9,7 +9,7 @@ public class LivesController : MonoBehaviour
     Transform targetPositionInUI;
     bool moveLife = false;
 
-    void FixedUpdate()
+    void Update()
     {
         MoveLife();
     }
