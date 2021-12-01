@@ -12,6 +12,7 @@ public class MoveItemsController : MonoBehaviour
     Vector3 moveDirections = Vector3.zero;
     bool stopMove = true;
     bool stopRotate = true;
+    float limiX, limitY;
 
     void Start()
     {
@@ -37,12 +38,15 @@ public class MoveItemsController : MonoBehaviour
             return;
         }
 
-        if (transform.position.x < -playerController.LimitsMove.x || transform.position.y < -playerController.LimitsMove.y)
+        limiX = playerController.LimitsMove.x;
+        limitY = playerController.LimitsMove.y;
+
+        if (transform.position.x < -limiX || transform.position.y < -limitY)
         {
             moveDirections = DirectionPositive();
         }
 
-        if (transform.position.x > playerController.LimitsMove.x || transform.position.y > playerController.LimitsMove.y)
+        if (transform.position.x > limiX || transform.position.y > limitY)
         {
             moveDirections = DirectionNegative();
         }

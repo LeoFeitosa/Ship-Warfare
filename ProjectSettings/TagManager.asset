@@ -11,9 +11,8 @@ TagManager:
   - Enemy
   - Life
   - MainHUD
-  - LiveBar
-  - BackgroundLiveBar
   - PlayerShot
+  - BackgroundLiveBar
   layers:
   - Default
   - TransparentFX

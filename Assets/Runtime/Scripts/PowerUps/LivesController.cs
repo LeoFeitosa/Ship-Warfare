@@ -8,12 +8,6 @@ public class LivesController : MonoBehaviour
     [SerializeField] float speedTargetPosition = 4f;
     Transform targetPositionInUI;
     bool moveLife = false;
-    SpriteRenderer colorPowerUp;
-
-    void Start()
-    {
-        colorPowerUp = GetComponent<SpriteRenderer>();
-    }
 
     void FixedUpdate()
     {

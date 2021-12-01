@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     CapsuleCollider2D colliderPlayer;
     public bool PlayerColliderWithEnemy { get; private set; }
 
+
     void Start()
     {
         GameMode.Instance.Resume();
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
 
         PlayerColliderWithEnemy = true;
+
+        mainHUDObject.GetComponent<UILivesController>().SetLifesToUI(Lives);
     }
 
     void FixedUpdate()
@@ -89,6 +92,7 @@ public class PlayerController : MonoBehaviour
             if (Lives > 0)
             {
                 Lives--;
+                mainHUDObject.GetComponent<UILivesController>().SetLifesToUI(Lives);
             }
             else
             {
@@ -106,6 +110,7 @@ public class PlayerController : MonoBehaviour
             if (Lives < numberOfLives && Lives > 0)
             {
                 Lives++;
+                mainHUDObject.GetComponent<UILivesController>().SetLifesToUI(Lives);
             }
         }
     }

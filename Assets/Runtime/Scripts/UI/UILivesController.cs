@@ -6,24 +6,17 @@ using UnityEngine;
 public class UILivesController : MonoBehaviour
 {
     [SerializeField] Color[] colorLiveBar;
-    [SerializeField] Image imageLiveBar;
-    static PlayerController playerController;
+    [SerializeField] Image lifeBar;
     float percentageBar;
     [SerializeField] float timeToRemoveLife = 1.5f;
     [SerializeField] float timeToMergeColors = 2;
+    int lifesCount = 1;
 
     void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
+        lifeBar.fillAmount = lifesCount;
 
-        GameObject liveBar = GameObject.FindWithTag("LiveBar");
-        if (liveBar != null)
-        {
-            imageLiveBar = liveBar.GetComponent<Image>(); ;
-        }
-
-        if (colorLiveBar != null)
+        if (colorLiveBar.Length > 0)
         {
             percentageBar = 1f / (colorLiveBar.Length - 1);
         }
@@ -31,18 +24,23 @@ public class UILivesController : MonoBehaviour
 
     void LateUpdate()
     {
-        SetColorBar(playerController.Lives);
-        SetSizeBar(playerController.Lives);
+        SetColorBar();
+        SetSizeBar();
     }
 
-    void SetColorBar(int color)
+    void SetColorBar()
     {
-        imageLiveBar.color = Color.Lerp(imageLiveBar.color, colorLiveBar[color], timeToMergeColors * Time.deltaTime);
+        lifeBar.color = Color.Lerp(lifeBar.color, colorLiveBar[lifesCount], timeToMergeColors * Time.deltaTime);
     }
 
-    void SetSizeBar(float value)
+    void SetSizeBar()
     {
-        float percentageFillAmount = percentageBar * value;
-        imageLiveBar.fillAmount = Mathf.Lerp(imageLiveBar.fillAmount, percentageFillAmount, timeToRemoveLife * Time.deltaTime);
+        float percentageFillAmount = percentageBar * lifesCount;
+        lifeBar.fillAmount = Mathf.Lerp(lifeBar.fillAmount, percentageFillAmount, timeToRemoveLife * Time.deltaTime);
+    }
+
+    public void SetLifesToUI(int lifes)
+    {
+        lifesCount = lifes;
     }
 }

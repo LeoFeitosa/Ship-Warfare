@@ -41,7 +41,6 @@ public class SceneController : MonoBehaviour
 
         if (asyncLoad.isDone)
         {
-            yield return new WaitForSeconds(0.5f);
             animator.SetTrigger("FadeOut");
         }
     }
