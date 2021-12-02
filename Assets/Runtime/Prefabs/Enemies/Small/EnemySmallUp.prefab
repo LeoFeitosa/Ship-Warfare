@@ -171,8 +171,6 @@ MonoBehaviour:
   speed: 4
   startPosition: 6
   invert: 1
-  xInitial: -2.5
-  xFinal: 2.5
 --- !u!114 &1123022228577728597
 MonoBehaviour:
   m_ObjectHideFlags: 0

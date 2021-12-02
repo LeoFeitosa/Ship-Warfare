@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     public Vector2 LimitsMove { get; private set; }
     public float IsMove { get; private set; }
     public bool IsDead { get; private set; }
-    GameObject mainHUDObject;
     MainHUD mainHUD;
     SpriteRenderer spritePlayer;
     CapsuleCollider2D colliderPlayer;
@@ -39,8 +38,9 @@ public class PlayerController : MonoBehaviour
     {
         GameMode.Instance.Resume();
 
-        mainHUDObject = GameObject.FindWithTag("MainHUD");
+        GameObject mainHUDObject = GameObject.FindWithTag("MainHUD");
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
+
         spritePlayer = GetComponentInChildren<SpriteRenderer>();
         colliderPlayer = GetComponentInChildren<CapsuleCollider2D>();
 
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         PlayerColliderWithEnemy = true;
 
-        mainHUDObject.GetComponent<UILivesController>().SetLifesToUI(Lives);
+        mainHUD.GetComponent<UILivesController>().SetLifesToUI(Lives);
     }
 
     void FixedUpdate()
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             if (Lives > 0)
             {
                 Lives--;
-                mainHUDObject.GetComponent<UILivesController>().SetLifesToUI(Lives);
+                mainHUD.GetComponent<UILivesController>().SetLifesToUI(Lives);
             }
             else
             {
@@ -105,12 +105,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (col.CompareTag("Life"))
+        if (col.CompareTag("PowerUpLiveExtra"))
         {
             if (Lives < numberOfLives && Lives > 0)
             {
                 Lives++;
-                mainHUDObject.GetComponent<UILivesController>().SetLifesToUI(Lives);
+                mainHUD.GetComponent<UILivesController>().SetLifesToUI(Lives);
             }
         }
     }

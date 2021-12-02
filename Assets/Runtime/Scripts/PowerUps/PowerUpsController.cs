@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(MoveItemsController))]
 public class PowerUpsController : MonoBehaviour
 {
     [SerializeField] AudioClip soundWhenPickingUp;

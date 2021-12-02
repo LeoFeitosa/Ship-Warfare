@@ -10,17 +10,15 @@ public class EnemyMoveUpDownController : MonoBehaviour
     public bool IsInvert { get; private set; }
 
     Vector2 direction;
-    GameObject mainHUDObject;
     MainHUD mainHUD;
-    GameObject player;
     PlayerController playerController;
 
     void Start()
     {
-        mainHUDObject = GameObject.FindWithTag("MainHUD");
+        GameObject mainHUDObject = GameObject.FindWithTag("MainHUD");
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
 
-        player = GameObject.FindWithTag("Player");
+        GameObject player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
 
         transform.position = Vector3.zero;
@@ -39,7 +37,7 @@ public class EnemyMoveUpDownController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Move();
     }
@@ -48,17 +46,12 @@ public class EnemyMoveUpDownController : MonoBehaviour
     {
         if (!mainHUD.IsCountSeconds)
         {
-            transform.Translate(direction * speed * Time.fixedDeltaTime);
+            transform.Translate(direction * speed * Time.deltaTime);
         }
     }
 
     float RandomPositionX()
     {
         return Random.Range(-playerController.LimitsMove.x, playerController.LimitsMove.x);
-    }
-
-    void OnBecameInvisible()
-    {
-        Destroy(this.gameObject);
     }
 }

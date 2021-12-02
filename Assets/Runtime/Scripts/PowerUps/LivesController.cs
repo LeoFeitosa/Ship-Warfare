@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MoveItemsController))]
 public class LivesController : MonoBehaviour
 {
     [SerializeField] AudioClip soundWhenPickingUp;

@@ -6,13 +6,12 @@ TagManager:
   tags:
   - PowerUpShotTriple
   - PowerUpShotDouble
-  - PowerUpOneMoreLife
   - BackgroundPowerUp
   - Enemy
-  - Life
   - MainHUD
   - PlayerShot
   - BackgroundLiveBar
+  - PowerUpLiveExtra
   layers:
   - Default
   - TransparentFX

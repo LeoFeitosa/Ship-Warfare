@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205141238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShotStartPosition
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 400957699131977070}
   - component: {fileID: 400957699131977071}
   - component: {fileID: 400957699131977072}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 400957698707302594}
   - component: {fileID: 8215032749341944876}
   - component: {fileID: 4167447090659260677}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

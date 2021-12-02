@@ -7,17 +7,16 @@ public class MoveItemsController : MonoBehaviour
 {
     [SerializeField] float speedMove;
     [SerializeField] float speedRoration;
-    GameObject player;
     PlayerController playerController;
     Vector3 moveDirections = Vector3.zero;
+    Vector3 moveLimits = Vector3.zero;
     bool stopMove = true;
     bool stopRotate = true;
-    float limiX, limitY;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
+        moveLimits = playerController.LimitsMove;
 
         moveDirections = RandomBool() ? DirectionPositive() : DirectionNegative();
         speedRoration = RandomBool() ? speedRoration : -speedRoration;
@@ -25,8 +24,9 @@ public class MoveItemsController : MonoBehaviour
         stopRotate = false;
     }
 
-    void LateUpdate()
+    void Update()
     {
+
         Move();
         RotatePowerUp();
     }
@@ -38,15 +38,12 @@ public class MoveItemsController : MonoBehaviour
             return;
         }
 
-        limiX = playerController.LimitsMove.x;
-        limitY = playerController.LimitsMove.y;
-
-        if (transform.position.x < -limiX || transform.position.y < -limitY)
+        if (transform.position.x < -moveLimits.x || transform.position.y < -moveLimits.y)
         {
             moveDirections = DirectionPositive();
         }
 
-        if (transform.position.x > limiX || transform.position.y > limitY)
+        if (transform.position.x > moveLimits.x || transform.position.y > moveLimits.y)
         {
             moveDirections = DirectionNegative();
         }
@@ -93,10 +90,5 @@ public class MoveItemsController : MonoBehaviour
             stopMove = true;
             stopRotate = true;
         }
-    }
-
-    void OnBecameInvisible()
-    {
-        Destroy(this.gameObject);
     }
 }
