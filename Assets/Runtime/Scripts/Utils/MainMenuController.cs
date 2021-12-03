@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
+    [SerializeField] float speedBackground = 1;
+
+    void Start()
+    {
+        Time.timeScale = speedBackground;
+    }
+
     public void ChangeScene(string name)
     {
         SceneController.Instance.LoadScene(name);
