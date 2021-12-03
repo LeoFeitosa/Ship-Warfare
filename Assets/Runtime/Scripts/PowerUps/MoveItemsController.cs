@@ -26,7 +26,6 @@ public class MoveItemsController : MonoBehaviour
 
     void Update()
     {
-
         Move();
         RotatePowerUp();
     }
