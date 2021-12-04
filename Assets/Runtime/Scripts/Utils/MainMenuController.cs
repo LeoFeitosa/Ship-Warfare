@@ -5,7 +5,18 @@ using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
+    [Header("Music")]
+    [SerializeField] AudioClip musicMainMenu;
+
     [SerializeField] float speedBackground = 1;
+
+    void Awake()
+    {
+        if (!AudioController.Instance.MusicIsPlaying())
+        {
+            AudioController.Instance.PlayMusic(musicMainMenu);
+        }
+    }
 
     void Start()
     {
@@ -17,7 +28,7 @@ public class MainMenuController : MonoBehaviour
         SceneController.Instance.LoadScene(name);
     }
 
-    public void PlayAudioButton(AudioClip soundButton)
+    public void PlayAudio(AudioClip soundButton)
     {
         AudioController.Instance.PlayAudioCue(soundButton);
     }

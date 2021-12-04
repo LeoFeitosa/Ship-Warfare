@@ -45,10 +45,13 @@ public class AudioController : MonoBehaviour
 
     IEnumerator PlayMusicWithFade(AudioClip clip)
     {
-        for (float volume = 1; volume >= 0; volume -= timeToFade)
+        if (MusicIsPlaying())
         {
-            yield return new WaitForSeconds(0.1f);
-            musicSource.volume = volume;
+            for (float volume = 1; volume >= 0; volume -= timeToFade)
+            {
+                yield return new WaitForSeconds(0.1f);
+                musicSource.volume = volume;
+            }
         }
 
         musicSource.volume = 0;
@@ -62,5 +65,14 @@ public class AudioController : MonoBehaviour
         }
 
         musicSource.volume = 1;
+    }
+
+    public bool MusicIsPlaying()
+    {
+        if (musicSource.isPlaying)
+        {
+            return true;
+        }
+        return false;
     }
 }
