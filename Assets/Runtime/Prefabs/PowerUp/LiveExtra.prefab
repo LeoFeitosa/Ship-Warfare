@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMove: 1.6
   speedRoration: 25
+  initialSpawnOffset: 0.02

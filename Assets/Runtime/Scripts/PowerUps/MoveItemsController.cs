@@ -7,6 +7,7 @@ public class MoveItemsController : MonoBehaviour
 {
     [SerializeField] float speedMove;
     [SerializeField] float speedRoration;
+    [SerializeField] float initialSpawnOffset;
     PlayerController playerController;
     Vector3 moveDirections = Vector3.zero;
     Vector3 moveLimits = Vector3.zero;
@@ -37,12 +38,12 @@ public class MoveItemsController : MonoBehaviour
             return;
         }
 
-        if (transform.position.x < -moveLimits.x || transform.position.y < -moveLimits.y)
+        if (transform.position.x < (-moveLimits.x + initialSpawnOffset) || transform.position.y < (-moveLimits.y + initialSpawnOffset))
         {
             moveDirections = DirectionPositive();
         }
 
-        if (transform.position.x > moveLimits.x || transform.position.y > moveLimits.y)
+        if (transform.position.x > (moveLimits.x - initialSpawnOffset) || transform.position.y > (moveLimits.y - initialSpawnOffset))
         {
             moveDirections = DirectionNegative();
         }

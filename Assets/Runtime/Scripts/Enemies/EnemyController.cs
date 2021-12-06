@@ -61,8 +61,8 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
-        enemyAnimation.IsDead = true;
         colliderEnemy.enabled = false;
+        enemyAnimation.IsDead = true;
         uIScoreController = FindObjectOfType<UIScoreController>();
         uIScoreController.SetScore(pointsToBeDestroyed);
     }
