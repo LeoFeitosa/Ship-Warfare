@@ -12,7 +12,7 @@ public class MainMenuController : MonoBehaviour
 
     void Awake()
     {
-        if (!AudioController.Instance.MusicIsPlaying())
+        if (AudioController.Instance != null && !AudioController.Instance.MusicIsPlaying())
         {
             AudioController.Instance.PlayMusic(musicMainMenu);
         }
