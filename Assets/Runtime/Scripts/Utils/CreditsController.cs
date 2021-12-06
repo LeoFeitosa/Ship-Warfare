@@ -5,22 +5,20 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class CreditsController : MonoBehaviour, IPointerClickHandler
 {
-    TextMeshProUGUI pTextMeshPro;
-    //[SerializeField] Camera pCamera;
+    TextMeshProUGUI text;
 
     void Start()
     {
-        pTextMeshPro = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshProUGUI>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        int linkIndex = TMP_TextUtilities.FindIntersectingLink(pTextMeshPro, Input.mousePosition, null);
+        int linkIndex = TMP_TextUtilities.FindIntersectingLink(text, Input.mousePosition, null);
         if (linkIndex != -1)
-        { // was a link clicked?
-            TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
+        {
+            TMP_LinkInfo linkInfo = text.textInfo.linkInfo[linkIndex];
 
-            // open the link id as a url, which is the metadata we added in the text field
             Application.OpenURL(linkInfo.GetLinkID());
         }
     }

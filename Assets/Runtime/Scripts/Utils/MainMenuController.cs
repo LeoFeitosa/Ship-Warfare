@@ -22,14 +22,4 @@ public class MainMenuController : MonoBehaviour
     {
         Time.timeScale = speedBackground;
     }
-
-    public void ChangeScene(string name)
-    {
-        SceneController.Instance.LoadScene(name);
-    }
-
-    public void PlayAudio(AudioClip soundButton)
-    {
-        AudioController.Instance.PlayAudioCue(soundButton);
-    }
 }

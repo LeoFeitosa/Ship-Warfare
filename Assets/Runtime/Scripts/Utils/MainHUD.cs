@@ -41,7 +41,7 @@ public class MainHUD : MonoBehaviour
 
     public IEnumerator ShowCountdown()
     {
-        PlayMusic(musicGameplay);
+        AudioController.Instance.PlayMusic(musicGameplay);
         countdownOverlay.SetActive(true);
         playerInfo.SetActive(false);
         gameoverOverlay.SetActive(false);
@@ -52,13 +52,13 @@ public class MainHUD : MonoBehaviour
         while (countdownSeconds > 0)
         {
             countdownText.text = countdownSeconds.ToString();
-            PlayAudio(soundBipCount);
+            AudioController.Instance.PlayAudioCue(soundBipCount);
             yield return new WaitForSeconds(1);
             countdownSeconds--;
             IsCountSeconds = true;
         }
 
-        PlayAudio(soundBipGo);
+        AudioController.Instance.PlayAudioCue(soundBipGo);
         countdownText.text = "GO!";
 
         //animacao
@@ -78,19 +78,5 @@ public class MainHUD : MonoBehaviour
         countdownOverlay.SetActive(false);
         playerInfo.SetActive(true);
         IsCountSeconds = false;
-    }
-
-    public void ChangeScene(string name)
-    {
-        SceneController.Instance.LoadScene(name);
-    }
-
-    public void PlayAudio(AudioClip soundButton)
-    {
-        AudioController.Instance.PlayAudioCue(soundButton);
-    }
-    public void PlayMusic(AudioClip soundMusic)
-    {
-        AudioController.Instance.PlayMusic(soundMusic);
     }
 }

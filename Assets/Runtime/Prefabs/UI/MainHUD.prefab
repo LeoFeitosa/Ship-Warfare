@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 4916383105157620722}
   - component: {fileID: 4916383104412283924}
   - component: {fileID: 1924327856092596560}
+  - component: {fileID: 4916383104412283923}
   m_Layer: 5
   m_Name: MainHUD
   m_TagString: MainHUD
@@ -326,6 +327,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpBar: {fileID: 3658902610751858629}
+--- !u!114 &4916383104412283923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658902609122447954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805cd3f9db69aab40b2e77cdfd5ff2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3658902609439141821
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,8 +984,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4916383105157620722}
-        m_TargetAssemblyTypeName: MainHUD, Assembly-CSharp
+      - m_Target: {fileID: 4916383104412283923}
+        m_TargetAssemblyTypeName: ButtonsEffectsController, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
@@ -983,8 +996,8 @@ MonoBehaviour:
           m_StringArgument: Level
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4916383105157620722}
-        m_TargetAssemblyTypeName: MainHUD, Assembly-CSharp
+      - m_Target: {fileID: 4916383104412283923}
+        m_TargetAssemblyTypeName: ButtonsEffectsController, Assembly-CSharp
         m_MethodName: PlayAudio
         m_Mode: 2
         m_Arguments:
@@ -1012,8 +1025,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4916383105157620722}
-          m_TargetAssemblyTypeName: MainHUD, Assembly-CSharp
+        - m_Target: {fileID: 4916383104412283923}
+          m_TargetAssemblyTypeName: ButtonsEffectsController, Assembly-CSharp
           m_MethodName: PlayAudio
           m_Mode: 2
           m_Arguments:
@@ -1509,11 +1522,11 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4916383105157620722}
-        m_TargetAssemblyTypeName: MainHUD, Assembly-CSharp
+      - m_Target: {fileID: 4916383104412283923}
+        m_TargetAssemblyTypeName: ButtonsEffectsController, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
@@ -1524,24 +1537,12 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4916383105157620722}
-        m_TargetAssemblyTypeName: MainHUD, Assembly-CSharp
+      - m_Target: {fileID: 4916383104412283923}
+        m_TargetAssemblyTypeName: ButtonsEffectsController, Assembly-CSharp
         m_MethodName: PlayAudio
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 175c80e4eb149924bbe29553d506203f, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4916383105157620722}
-        m_TargetAssemblyTypeName: MainHUD, Assembly-CSharp
-        m_MethodName: PlayMusic
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 82ccc8e7449102a40a6f2947568bb71a, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1565,8 +1566,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4916383105157620722}
-          m_TargetAssemblyTypeName: MainHUD, Assembly-CSharp
+        - m_Target: {fileID: 4916383104412283923}
+          m_TargetAssemblyTypeName: ButtonsEffectsController, Assembly-CSharp
           m_MethodName: PlayAudio
           m_Mode: 2
           m_Arguments:
