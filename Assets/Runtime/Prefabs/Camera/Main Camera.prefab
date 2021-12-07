@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDuration: 0.25
-  shakeMagnitude: 0.09
+  shakeMagnitude: 0.12
