@@ -7,6 +7,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerInputController : MonoBehaviour
 {
+    public Vector2 startPos;
+    public Vector2 direction;
+
     public Vector3 Movements()
     {
         if (!enabled)
@@ -20,10 +23,13 @@ public class PlayerInputController : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved)
+
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {
-                horizontal = (touch.deltaPosition.x > 0) ? 1 : -1;
-                vertical = (touch.deltaPosition.y > 0) ? 1 : -1;
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector2(direction.x, direction.y));
+
+                horizontal = touchPosition.x > 0 ? 1 : -1;
+                vertical = touchPosition.y > 0 ? 1 : -1;
             }
         }
 
@@ -37,7 +43,7 @@ public class PlayerInputController : MonoBehaviour
             return false;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.touchCount > 0)
         {
             return true;
         }
