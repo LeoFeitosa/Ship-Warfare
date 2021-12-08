@@ -7,9 +7,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerInputController : MonoBehaviour
 {
-    public Vector2 startPos;
-    public Vector2 direction;
-
     public Vector3 Movements()
     {
         if (!enabled)
@@ -26,10 +23,9 @@ public class PlayerInputController : MonoBehaviour
 
             if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {
-                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector2(direction.x, direction.y));
-
-                horizontal = touchPosition.x > 0 ? 1 : -1;
-                vertical = touchPosition.y > 0 ? 1 : -1;
+                Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
+                horizontal = pos.x > 0 ? 1 : -1;
+                vertical = pos.y > 0 ? 1 : -1;
             }
         }
 
