@@ -10,7 +10,8 @@ using UnityEngine.UI;
 public class PlayerInputController : MonoBehaviour
 {
     Vector3 positionTouch;
-    bool typeInput;
+    bool touchInput = false;
+    bool touchInputMove = false;
 
     public Vector3 MovementsKeyboard()
     {
@@ -19,20 +20,19 @@ public class PlayerInputController : MonoBehaviour
             return Vector3.zero;
         }
 
+        if (Input.anyKey)
+        {
+            touchInput = false;
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
-        if (horizontal != 0 && vertical != 0)
-        {
-            typeInput = false;
-        }
 
         return new Vector3(horizontal, vertical, transform.position.z);
     }
 
     public Vector3 MovementsTouch()
     {
-
         if (!enabled)
         {
             return Vector3.zero;
@@ -40,18 +40,36 @@ public class PlayerInputController : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            typeInput = true;
+            touchInput = true;
             Touch touch = Input.GetTouch(0);
             positionTouch = Camera.main.ScreenToWorldPoint(touch.position);
+
+            if (touch.phase == TouchPhase.Moved)
+            {
+                touchInputMove = true;
+            }
+            else
+            {
+                touchInputMove = false;
+            }
+        }
+        else
+        {
+            touchInputMove = false;
         }
 
         positionTouch.z = transform.position.z;
         return positionTouch;
     }
 
+    public bool TouchOnTheMove()
+    {
+        return touchInputMove;
+    }
+
     public bool IsTouch()
     {
-        return typeInput;
+        return touchInput;
     }
 
     public bool Shoot()
