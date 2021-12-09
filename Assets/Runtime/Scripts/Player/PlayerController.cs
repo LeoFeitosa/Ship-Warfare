@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!mainHUD.IsCountSeconds)
         {
-            Move(input.Movements());
+            MoveKeyboard(input.MovementsKeyboard());
+            MoveTouch(input.MovementsTouch());
 
             if (input.Shoot())
             {
@@ -72,15 +73,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Move(Vector3 move)
+    void MoveKeyboard(Vector3 move)
     {
-        IsMove = move.x;
+        if (!input.IsTouch())
+        {
+            IsMove = move.x;
 
-        moveDirections += move * speedMoveNormal * Time.fixedDeltaTime;
-        moveDirections.x = Mathf.Clamp(moveDirections.x, -limitMoveXY.x, limitMoveXY.x);
-        moveDirections.y = Mathf.Clamp(moveDirections.y, -limitMoveXY.y, limitMoveXY.y);
+            moveDirections += move * speedMoveNormal * Time.fixedDeltaTime;
+            moveDirections.x = Mathf.Clamp(moveDirections.x, -limitMoveXY.x, limitMoveXY.x);
+            moveDirections.y = Mathf.Clamp(moveDirections.y, -limitMoveXY.y, limitMoveXY.y);
 
-        rb2D.MovePosition(moveDirections);
+            rb2D.MovePosition(moveDirections);
+        }
+    }
+
+    void MoveTouch(Vector3 move)
+    {
+        if (input.IsTouch())
+        {
+            IsMove = move.x;
+            transform.position = Vector3.Lerp(transform.position, move, speedMoveNormal * Time.fixedDeltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)

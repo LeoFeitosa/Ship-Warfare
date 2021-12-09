@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +9,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerInputController : MonoBehaviour
 {
-    public Vector3 Movements()
+    Vector3 positionTouch;
+    bool typeInput;
+
+    public Vector3 MovementsKeyboard()
     {
         if (!enabled)
         {
@@ -17,19 +22,36 @@ public class PlayerInputController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        if (Input.touchCount > 0)
+        if (horizontal != 0 && vertical != 0)
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
-            {
-                Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
-                horizontal = pos.x > 0 ? 1 : -1;
-                vertical = pos.y > 0 ? 1 : -1;
-            }
+            typeInput = false;
         }
 
         return new Vector3(horizontal, vertical, transform.position.z);
+    }
+
+    public Vector3 MovementsTouch()
+    {
+
+        if (!enabled)
+        {
+            return Vector3.zero;
+        }
+
+        if (Input.touchCount > 0)
+        {
+            typeInput = true;
+            Touch touch = Input.GetTouch(0);
+            positionTouch = Camera.main.ScreenToWorldPoint(touch.position);
+        }
+
+        positionTouch.z = transform.position.z;
+        return positionTouch;
+    }
+
+    public bool IsTouch()
+    {
+        return typeInput;
     }
 
     public bool Shoot()
@@ -43,6 +65,7 @@ public class PlayerInputController : MonoBehaviour
         {
             return true;
         }
+
         return false;
     }
 }
