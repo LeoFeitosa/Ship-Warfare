@@ -63,12 +63,7 @@ public class MoveItemsController : MonoBehaviour
 
     bool RandomBool()
     {
-        if (Random.Range(0, 1) == 1)
-        {
-            return true;
-        }
-
-        return false;
+        return (Random.value < 0.5f) ? true : false;
     }
 
     void RotatePowerUp()

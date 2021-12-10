@@ -93,7 +93,6 @@ public class CloudController : MonoBehaviour
 
     bool RandBool()
     {
-        float rand = Random.Range(0, 100);
-        return (rand < 50) ? true : false;
+        return (Random.value < 0.5f) ? true : false;
     }
 }

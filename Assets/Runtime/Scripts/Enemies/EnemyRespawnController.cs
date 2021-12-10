@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyRespawnController : MonoBehaviour
 {
     [Header("Random Spawn Interval")]
-    [SerializeField] int intervalInitial = 2;
-    [SerializeField] int intervalFinal = 3;
+    [SerializeField] float intervalInitial = 2;
+    [SerializeField] float intervalFinal = 3;
 
     [Header("Big")]
     [SerializeField] GameObject[] BigEnemiesPrefab;
@@ -14,7 +14,7 @@ public class EnemyRespawnController : MonoBehaviour
     [SerializeField] GameObject[] MediumEnemiesPrefab;
     [Header("Small")]
     [SerializeField] GameObject[] SmallEnemiesPrefab;
-    int countInterval;
+    float countInterval;
 
     void Start()
     {
