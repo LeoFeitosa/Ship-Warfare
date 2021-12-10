@@ -70,12 +70,12 @@ public class CloudController : MonoBehaviour
                     {
                         if (RandBool())
                         {
-                            instanceRenderer.flipX = !instanceRenderer.flipX;
+                            instanceRenderer.flipY = !instanceRenderer.flipY;
                         }
 
                         if (RandBool())
                         {
-                            instanceRenderer.flipY = !instanceRenderer.flipY;
+                            instanceRenderer.flipX = !instanceRenderer.flipX;
                         }
                     }
                 }

@@ -7,8 +7,8 @@ public class EnemyMoveUpDownController : MonoBehaviour
     [SerializeField] float speed = 0.04f;
     [SerializeField] int startPosition = 6;
     [SerializeField] bool invert = false;
+    [SerializeField] float distanceHitRaycast = 3f;
     public bool IsInvert { get; private set; }
-
     Vector2 direction;
     MainHUD mainHUD;
     PlayerController playerController;
@@ -27,19 +27,50 @@ public class EnemyMoveUpDownController : MonoBehaviour
 
         if (IsInvert)
         {
-            transform.position = new Vector3(RandomPositionX(), transform.position.y - startPosition, transform.position.z);
-            direction = Vector2.up;
+            DirectionDown();
         }
         else
         {
-            transform.position = new Vector3(RandomPositionX(), transform.position.y + startPosition, transform.position.z);
-            direction = Vector2.down;
+            DirectionUp();
         }
     }
 
     void Update()
     {
         Move();
+    }
+
+    void DirectionDown()
+    {
+        transform.position = new Vector3(RandomPositionX(), transform.position.y - startPosition, transform.position.z);
+        direction = Vector2.up;
+
+        if (CheckTheRespawnBehindThePlayer())
+        {
+            DirectionDown();
+        }
+    }
+
+    void DirectionUp()
+    {
+        transform.position = new Vector3(RandomPositionX(), transform.position.y + startPosition, transform.position.z);
+        direction = Vector2.down;
+    }
+
+    bool CheckTheRespawnBehindThePlayer()
+    {
+        Vector2 startPosition = (Vector2)transform.position + new Vector2(0, 0.3f);
+        int layerMask = LayerMask.GetMask("Player");
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.up, distanceHitRaycast, layerMask, 0);
+
+        Debug.DrawRay(startPosition, Vector2.up * distanceHitRaycast, Color.green);
+
+        if (hit && hit.transform.name == "Player")
+        {
+            return true;
+        }
+
+        return false;
     }
 
     void Move()

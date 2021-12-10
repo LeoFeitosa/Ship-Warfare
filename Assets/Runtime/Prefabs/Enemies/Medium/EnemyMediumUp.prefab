@@ -171,6 +171,7 @@ MonoBehaviour:
   speed: 2.7
   startPosition: 6
   invert: 1
+  distanceHitRaycast: 3
 --- !u!114 &1359561821547624361
 MonoBehaviour:
   m_ObjectHideFlags: 0
