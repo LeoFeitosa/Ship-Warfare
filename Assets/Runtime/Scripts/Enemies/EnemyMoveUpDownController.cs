@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class EnemyMoveUpDownController : MonoBehaviour
@@ -8,6 +9,8 @@ public class EnemyMoveUpDownController : MonoBehaviour
     [SerializeField] int startPosition = 6;
     [SerializeField] bool invert = false;
     [SerializeField] float distanceHitRaycast = 3f;
+    bool respawnBehindThePlayer = false;
+    bool respawnFromBelow = false;
     public bool IsInvert { get; private set; }
     Vector2 direction;
     MainHUD mainHUD;
@@ -37,6 +40,7 @@ public class EnemyMoveUpDownController : MonoBehaviour
 
     void Update()
     {
+        CheckTheRespawnBehindThePlayer();
         Move();
     }
 
@@ -45,8 +49,11 @@ public class EnemyMoveUpDownController : MonoBehaviour
         transform.position = new Vector3(RandomPositionX(), transform.position.y - startPosition, transform.position.z);
         direction = Vector2.up;
 
-        if (CheckTheRespawnBehindThePlayer())
+        respawnFromBelow = true;
+
+        if (respawnBehindThePlayer)
         {
+            respawnBehindThePlayer = false;
             DirectionDown();
         }
     }
@@ -57,20 +64,22 @@ public class EnemyMoveUpDownController : MonoBehaviour
         direction = Vector2.down;
     }
 
-    bool CheckTheRespawnBehindThePlayer()
+    void CheckTheRespawnBehindThePlayer()
     {
-        Vector2 startPosition = (Vector2)transform.position + new Vector2(0, 0.3f);
-        int layerMask = LayerMask.GetMask("Player");
-        RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.up, distanceHitRaycast, layerMask, 0);
-
-        Debug.DrawRay(startPosition, Vector2.up * distanceHitRaycast, Color.green);
-
-        if (hit && hit.transform.name == "Player")
+        if (respawnFromBelow)
         {
-            return true;
-        }
+            Vector2 startPosition = (Vector2)transform.position + new Vector2(0, 0.3f);
+            int layerMask = LayerMask.GetMask("Player");
+            RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.up, distanceHitRaycast, layerMask, 0);
 
-        return false;
+            Debug.DrawRay(startPosition, Vector2.up * distanceHitRaycast, Color.green);
+
+            if (hit && hit.transform.name == "Player")
+            {
+                Debug.Log(hit.transform.name);
+                respawnBehindThePlayer = true;
+            }
+        }
     }
 
     void Move()
