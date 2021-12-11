@@ -291,8 +291,8 @@ MonoBehaviour:
   playerInfo: {fileID: 3658902609503219090}
   countdownText: {fileID: 4916383104128077617}
   countdownSeconds: 3
-  textAnimationTime: 0.05
-  textAnimationScaleSize: 10
+  textAnimationTime: 0.075
+  textAnimationScaleSize: 12
 --- !u!114 &4916383104412283924
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,11 +20,12 @@ public class PlayerController : MonoBehaviour
     ShotsTypesController shotsTypes;
     Vector3 moveDirections = Vector3.zero;
     Rigidbody2D rb2D;
+    [Header("Data")]
     [SerializeField] int numberOfLives = 4;
-    public int Lives { get; private set; }
-    public int MaxLives { get; private set; }
     [SerializeField] float speedMoveNormal = 0.5f;
     [SerializeField] Vector2 limitMoveXY;
+    public int Lives { get; private set; }
+    public int MaxLives { get; private set; }
     public Vector2 LimitsMove { get; private set; }
     public float IsMove { get; private set; }
     public bool IsDead { get; private set; }

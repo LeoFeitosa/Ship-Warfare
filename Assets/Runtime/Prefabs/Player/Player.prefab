@@ -229,13 +229,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc115e6a203c94e419e30da622fd65d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfBlinks: 54
+  numberOfBlinks: 50
   timeBetweenColors: 0.03
   musicGameover: {fileID: 8300000, guid: 732741c921820f44b8e0224d0dc011cc, type: 3}
   soundPlayerDie: {fileID: 8300000, guid: ac48f7e7d012cfc489a96c51ccf5bb11, type: 3}
   soundCollisionWithEnemy: {fileID: 8300000, guid: d4e5f711173e82644b1695f4ad5b436b, type: 3}
   numberOfLives: 4
-  speedMoveNormal: 7.7
+  speedMoveNormal: 7.5
   limitMoveXY: {x: 2.55, y: 4.62}
 --- !u!114 &8718567972641795028
 MonoBehaviour:

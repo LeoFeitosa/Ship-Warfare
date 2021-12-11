@@ -9,20 +9,19 @@ public class EnemyMoveUpDownController : MonoBehaviour
     [SerializeField] int startPosition = 6;
     [SerializeField] bool invert = false;
     [SerializeField] float distanceHitRaycast = 3f;
-    bool respawnBehindThePlayer = false;
-    bool respawnFromBelow = false;
     public bool IsInvert { get; private set; }
     Vector2 direction;
     MainHUD mainHUD;
     PlayerController playerController;
+    float moveLimits = 0;
 
     void Start()
     {
         GameObject mainHUDObject = GameObject.FindWithTag("MainHUD");
         mainHUD = mainHUDObject.GetComponent<MainHUD>();
 
-        GameObject player = GameObject.FindWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
+        playerController = FindObjectOfType<PlayerController>();
+        moveLimits = playerController.LimitsMove.x;
 
         transform.position = Vector3.zero;
 
@@ -40,7 +39,6 @@ public class EnemyMoveUpDownController : MonoBehaviour
 
     void Update()
     {
-        CheckTheRespawnBehindThePlayer();
         Move();
     }
 
@@ -49,11 +47,8 @@ public class EnemyMoveUpDownController : MonoBehaviour
         transform.position = new Vector3(RandomPositionX(), transform.position.y - startPosition, transform.position.z);
         direction = Vector2.up;
 
-        respawnFromBelow = true;
-
-        if (respawnBehindThePlayer)
+        if (CheckTheRespawnBehindThePlayer())
         {
-            respawnBehindThePlayer = false;
             DirectionDown();
         }
     }
@@ -64,22 +59,20 @@ public class EnemyMoveUpDownController : MonoBehaviour
         direction = Vector2.down;
     }
 
-    void CheckTheRespawnBehindThePlayer()
+    bool CheckTheRespawnBehindThePlayer()
     {
-        if (respawnFromBelow)
+        Vector2 startPosition = (Vector2)transform.position + new Vector2(0, 0.3f);
+        int layerMask = LayerMask.GetMask("Player");
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.up, distanceHitRaycast, layerMask, 0);
+
+        Debug.DrawRay(startPosition, Vector2.up * distanceHitRaycast, Color.green);
+
+        if (hit && hit.transform.name == "Player")
         {
-            Vector2 startPosition = (Vector2)transform.position + new Vector2(0, 0.3f);
-            int layerMask = LayerMask.GetMask("Player");
-            RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.up, distanceHitRaycast, layerMask, 0);
-
-            Debug.DrawRay(startPosition, Vector2.up * distanceHitRaycast, Color.green);
-
-            if (hit && hit.transform.name == "Player")
-            {
-                Debug.Log(hit.transform.name);
-                respawnBehindThePlayer = true;
-            }
+            return true;
         }
+
+        return false;
     }
 
     void Move()
@@ -92,6 +85,6 @@ public class EnemyMoveUpDownController : MonoBehaviour
 
     float RandomPositionX()
     {
-        return Random.Range(-playerController.LimitsMove.x, playerController.LimitsMove.x);
+        return Random.Range(-moveLimits, moveLimits);
     }
 }
