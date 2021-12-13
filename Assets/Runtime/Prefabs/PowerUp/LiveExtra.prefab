@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMove: 1.6
   speedRoration: 0
-  initialSpawnOffset: 0.05
+  initialSpawnOffset: 0.07
 --- !u!95 &-7339345615520928830
 Animator:
   serializedVersion: 3
