@@ -90,11 +90,10 @@ public class PowerUpsController : MonoBehaviour
     {
         timerIsRunning = true;
 
-        TransformCollectedPowerIntoUI();
-
         GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().gameObject.layer = LayerMask.NameToLayer("UI");
         GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID("UI");
-        GetComponent<SpriteRenderer>().sortingOrder = 10;
+        GetComponent<SpriteRenderer>().sortingOrder = 1;
 
         movePowerUp = true;
 
@@ -104,28 +103,6 @@ public class PowerUpsController : MonoBehaviour
     void AdjustScalePowerUp()
     {
         transform.localScale = new Vector3(sizeAfterPickingUp, sizeAfterPickingUp, transform.localScale.z);
-    }
-
-    void TransformCollectedPowerIntoUI()
-    {
-        foreach (var item in GetPowerUpsByTag())
-        {
-            SpriteRenderer render = item.GetComponent<SpriteRenderer>();
-            CircleCollider2D collider = item.GetComponent<CircleCollider2D>();
-            if (render != null && collider.enabled == false)
-            {
-                render.sortingLayerID = SortingLayer.NameToID("UI");
-                render.sortingOrder = 1;
-            }
-        }
-    }
-
-    GameObject[] GetPowerUpsByTag()
-    {
-        GameObject[] powerUpTripleInScene = GameObject.FindGameObjectsWithTag("PowerUpShotTriple");
-        GameObject[] powerUpDoubleInScene = GameObject.FindGameObjectsWithTag("PowerUpShotDouble");
-        GameObject[] powerUpsInScene = powerUpTripleInScene.Concat(powerUpDoubleInScene).ToArray();
-        return powerUpsInScene;
     }
 
     void MovePowerUp()

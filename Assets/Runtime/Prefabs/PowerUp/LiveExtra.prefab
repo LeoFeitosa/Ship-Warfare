@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6521963264600655783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundWhenPickingUp: {fileID: 8300000, guid: ba73a5bc13f2481488b6021d817e4389, type: 3}
-  speedTargetPosition: 38
+  speedTargetPosition: 35
 --- !u!114 &764751138534203059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMove: 1.6
   speedRoration: 0
-  initialSpawnOffset: 0.02
+  initialSpawnOffset: 0.05
 --- !u!95 &-7339345615520928830
 Animator:
   serializedVersion: 3

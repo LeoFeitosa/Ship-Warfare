@@ -6,7 +6,7 @@ using UnityEngine;
 public class LivesController : MonoBehaviour
 {
     [SerializeField] AudioClip soundWhenPickingUp;
-    [SerializeField] float speedTargetPosition = 4f;
+    [SerializeField] float speedTargetPosition = 1.5f;
     Transform targetPositionInUI;
     bool moveLife = false;
 
@@ -39,7 +39,7 @@ public class LivesController : MonoBehaviour
     {
         if (moveLife && targetPositionInUI != null)
         {
-            float step = speedTargetPosition * Time.fixedDeltaTime;
+            float step = speedTargetPosition * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPositionInUI.position, step);
         }
 

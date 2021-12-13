@@ -434,6 +434,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 3658902609503219090, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658902609503219090, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658902609503219091, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383103892005416, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383104335080101, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383104412283924, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: colorLiveBar.Array.data[0].a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383104431266214, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383104839986075, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383105070080616, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383105677584234, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916383105842561401, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3e1fc8be4d2e8a43a963237804b22c6, type: 3}
 --- !u!1001 &5254303908928507481

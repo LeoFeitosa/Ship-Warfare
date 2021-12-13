@@ -136,7 +136,7 @@ MonoBehaviour:
   soundWhenPickingUp: {fileID: 8300000, guid: fec7238dee820ea438cfa0c6520bb7cd, type: 3}
   duration: 20
   sizeAfterPickingUp: 0.832
-  speedTargetPosition: 38
+  speedTargetPosition: 35
 --- !u!114 &-7572953733562865721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,4 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMove: 1.6
   speedRoration: 25
-  initialSpawnOffset: 0.02
+  initialSpawnOffset: 0.05
