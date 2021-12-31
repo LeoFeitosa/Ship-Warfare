@@ -203,8 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8931c4f6310d2b94088db6e3393d9dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalInitial: 0.5
-  intervalFinal: 2
+  intervalInitial: 1
+  intervalFinal: 2.8
   BigEnemiesPrefab:
   - {fileID: 1704319709715388546, guid: 3475e3de5d2e06f40a5b9b0ce703df5d, type: 3}
   - {fileID: 6638414780653687551, guid: 0f0c1739950291441bf222bd0f44b738, type: 3}

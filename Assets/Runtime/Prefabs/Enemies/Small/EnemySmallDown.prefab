@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5610384375954125268, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
       propertyPath: distanceHitRaycast
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb9a0a87c239a145876ac021e6a1792, type: 3}
