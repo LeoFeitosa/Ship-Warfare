@@ -5,7 +5,6 @@ Entre em uma guerra sem fim para proteger o planeta da invasão de naves aliení
 
 ## Screenshots
 
-![App Screenshot](https://img.itch.zone/aW1hZ2UvMTMwNzU4Mi83NjIyNDY4LnBuZw==/250x600/JgvvUX.png)
 ![App Screenshot](https://img.itch.zone/aW1hZ2UvMTMwNzU4Mi83NjIyNDYxLnBuZw==/250x600/bWaf6F.png)
 ![App Screenshot](https://img.itch.zone/aW1hZ2UvMTMwNzU4Mi83NjIyNDQxLnBuZw==/250x600/lC2FkZ.png)
 ![App Screenshot](https://img.itch.zone/aW1hZ2UvMTMwNzU4Mi83NjIyNDU1LnBuZw==/250x600/I%2BmIo0.png)
